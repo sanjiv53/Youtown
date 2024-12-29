@@ -19,9 +19,10 @@ export default function Sale(){
     const navigate = useNavigate();
     const [searchQuery, setSearchQuery] = useState("");
     const [searchQueryLocation, setSearchQueryLocation] = useState('');
+    const apiUrl = process.env.REACT_APP_API_URL;
     // ------------------------get property----------------------
  useEffect(() => {
-    axios.get('http://localhost:5000/getpropertyfrontend')
+    axios.get(`${apiUrl}/getpropertyfrontend`)
       .then(response => {
         setProperty(response.data); 
         console.log(response.data); 
@@ -62,7 +63,7 @@ const handlePropertyDetails = (property) => {
         { filteredBusinesses.map((property)=>(
            <div className={styletwo.property_page_box}>
                 <div>
-                    <img src={`http://localhost:5000/image/${property.imagePath}`}/>
+                    <img src={`${apiUrl}/image/${property.imagePath}`}/>
                 </div>
                 <div className={styletwo.property_page_details}>
                     <b> <CiHospital1 style={{marginRight:'10px'}}/> <FaMosque style={{marginRight:'10px'}}/> <LuChurch style={{marginRight:'10px'}}/> <GiByzantinTemple style={{marginRight:'10px'}}/> <FaShower style={{marginRight:'10px'}}/> <TbBusStop /></b>

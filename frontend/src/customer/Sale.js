@@ -18,9 +18,10 @@ export default function Sale() {
     const navigate = useNavigate();
     const [searchQuery, setSearchQuery] = useState("");
     const [searchQueryLocation, setSearchQueryLocation] = useState('');
+    const apiUrl = process.env.REACT_APP_API_URL;
     // ------------------------get product----------------------
     useEffect(() => {
-        axios.get('http://localhost:5000/getproductfrontend')
+        axios.get(`${apiUrl}/getproductfrontend`)
             .then(response => {
                 setProduct(response.data);
                 console.log(response.data);
@@ -95,7 +96,7 @@ export default function Sale() {
                         {filteredBusinesses.map((product) => (
                             <div className={styletwo.product_box_page}>
                                 <div>
-                                    <img src={`http://localhost:5000/image/${product.imagePath}`} />
+                                    <img src={`${apiUrl}/image/${product.imagePath}`} />
                                 </div>
                                 <div className={styletwo.product_details_page}>
                                     <a onClick={() => { handleProductDetails(product) }} style={{ cursor: 'pointer' }}><h3>{product.name}</h3></a>
@@ -114,7 +115,7 @@ export default function Sale() {
                     {filteredBusinesses.map((product) => (
                         <div className={styletwo.product_box_page}>
                             <div>
-                                <img src={`http://localhost:5000/image/${product.imagePath}`} />
+                                <img src={`${apiUrl}/image/${product.imagePath}`} />
                             </div>
                             <div className={styletwo.product_details_page}>
                                 <a onClick={() => { handleProductDetails(product) }} style={{ cursor: 'pointer' }}><h3>{product.name}</h3></a>

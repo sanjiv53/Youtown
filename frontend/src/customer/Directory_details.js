@@ -18,7 +18,7 @@ export default function Productdetails() {
     const [editingItem, setEditingItem] = useState(null);
     const itemToEdit = location.state?.directory || {};
     const { Lat, Lng } = itemToEdit;
-
+    const apiUrl = process.env.REACT_APP_API_URL;
     // Replace 'YOUR_API_KEY' with your actual Google Maps API Key
     const apiKey = 'AIzaSyCz2meywgHm9S7PXA29clmCAQa-JDWoRtA';
     const mapSrc = `https://www.google.com/maps/embed/v1/view?key=${apiKey}&center=${Lat},${Lng}&zoom=14`;
@@ -36,7 +36,7 @@ export default function Productdetails() {
 
     // ------------------------get directory----------------------
     useEffect(() => {
-        axios.get('http://localhost:5000/getdirectoryfrontend')
+        axios.get(`${apiUrl}/getdirectoryfrontend`)
             .then(response => {
                 setDirctory(response.data);
                 console.log(response.data);
@@ -61,16 +61,16 @@ export default function Productdetails() {
                             {/* React Slick Slider */}
                             <Slider {...settings}>
                                 <div>
-                                    <img src={`http://localhost:5000/image/${itemToEdit.logo}`} alt="Product 1" />
+                                    <img src={`${apiUrl}/image/${itemToEdit.logo}`} alt="Product 1" />
                                 </div>
                                 <div>
-                                    <img src={`http://localhost:5000/image/${itemToEdit.logo}`} alt="Product 2" />
+                                    <img src={`${apiUrl}/image/${itemToEdit.logo}`} alt="Product 2" />
                                 </div>
                                 <div>
-                                    <img src={`http://localhost:5000/image/${itemToEdit.logo}`} alt="Product 3" />
+                                    <img src={`${apiUrl}/image/${itemToEdit.logo}`} alt="Product 3" />
                                 </div>
                                 <div>
-                                    <img src={`http://localhost:5000/image/${itemToEdit.logo}`} alt="Product 3" />
+                                    <img src={`${apiUrl}/image/${itemToEdit.logo}`} alt="Product 3" />
                                 </div>
                             </Slider>
                         </div>
@@ -109,7 +109,7 @@ export default function Productdetails() {
                     <div className={styletwo.product_poss}>
                         <h4>Information</h4>
                         <div>
-                            <img src={`http://localhost:5000/image/${itemToEdit.logo}`} alt="Contact" />
+                            <img src={`${apiUrl}/image/${itemToEdit.logo}`} alt="Contact" />
                         </div>
                         <div>
                             <h4><FaBuilding style={{ color: 'red' }} />Name:{itemToEdit.name}</h4>
@@ -139,7 +139,7 @@ export default function Productdetails() {
                     {Dirctory.map((directory) => (
                         <div className={styletwo.productbox}>
                             <div>
-                                <img src={`http://localhost:5000/image/${directory.logo}`} alt="Sale Product 1" />
+                                <img src={`${apiUrl}/image/${directory.logo}`} alt="Sale Product 1" />
                             </div>
                             <div className={styletwo.productdetails}>
                                 <a onClick={() => { handleDetails(directory) }} style={{ cursor: 'pointer' }}>  <h3>{directory.name}</h3></a>

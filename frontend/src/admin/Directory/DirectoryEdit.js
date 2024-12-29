@@ -19,7 +19,7 @@ export default function Product() {
     const location = useLocation();
     const itemToEdit = location.state?. Directory  || {};
     const [file, setFile] = useState(null);
-  
+    const apiUrl = process.env.REACT_APP_API_URL;
     const [items, setItems] = useState(
          {
                   Address:itemToEdit. Address||'',
@@ -94,7 +94,7 @@ export default function Product() {
         
         const editingItemId = itemToEdit._id;
         try {
-            const response = await axios.put(`http://localhost:5000/directoryEdit/${editingItemId}`, formData, {
+            const response = await axios.put(`${apiUrl}/directoryEdit/${editingItemId}`, formData, {
                 headers: { 'Content-Type': 'multipart/form-data' },
             });
             console.log('Response:', response.data);
@@ -170,7 +170,7 @@ export default function Product() {
 
 // ------------------------get category----------------------
 useEffect(() => {
-    axios.get('http://localhost:5000/getcatgory')
+    axios.get(`${apiUrl}/getcatgory`)
       .then(response => {
         setCategory(response.data); 
         console.log(response.data); 
@@ -207,7 +207,7 @@ useEffect(() => {
                                 </div>
                                 <div>
                                 {existingImage && !file && (
-                                         <img  src={`http://localhost:5000/image/${existingImage}`}  alt="Existing image" width="100"  onError={(e) => {  e.target.onerror = null;  e.target.src = ''; }}  />
+                                         <img  src={`${apiUrl}/image/${existingImage}`}  alt="Existing image" width="100"  onError={(e) => {  e.target.onerror = null;  e.target.src = ''; }}  />
                                        )}
                                     {file && <img src={URL.createObjectURL(file)} alt="Preview" style={{ width: '40px', height: '40px' }} />} {/* Preview selected image */}<br />
                                     <label>Directory Image</label><br />
@@ -223,7 +223,6 @@ useEffect(() => {
                                     />
                                 </div>
 
-                             
                                 <div>
                                     <label>Category</label><br />
                                     <select value={newItem.Category} onChange={(e) => setNewItem({ ...newItem, Category: e.target.value })} >

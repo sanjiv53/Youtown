@@ -52,6 +52,9 @@ import AdminPropertyEdit from './admin/property/Property_Edit';
 import AdminBusinessEdit from './admin/business/Business_Edit';
 import AdminDirectoryEdit from './admin/Directory/DirectoryEdit';
 import AdminLoginEdit from './admin/login/adminloginEdit';
+import AdmincategoryEdit from './admin/Category/CategoryEdit';
+import AdminsubcategoryEdit from './admin/Category/subcategoryEdit';
+
 function App() {
   return (
     <>
@@ -96,6 +99,8 @@ function App() {
         <Route path='/adminBusinessEdit' element={< AdminBusinessEdit />}/>
         <Route path='/adminDirectoryEdit' element={<AdminDirectoryEdit />}/>
         <Route path='/adminLoginEdit' element={<AdminLoginEdit />}/>
+        <Route path='/adminCategoryEdit' element={<AdmincategoryEdit />}/>
+        <Route path='/adminSubCategoryEdit' element={<AdminsubcategoryEdit />}/>
         {/* --------BUSINES----------- */}
         <Route path='/businesshome' element={<Businesshome />}/>
         <Route path='/businessprofile' element={<Businessprofile />}/>

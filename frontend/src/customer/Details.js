@@ -14,6 +14,7 @@ import Slider from "react-slick";  // Import Slider from react-slick
 
 export default function Details() {
   const location = useLocation();
+  const apiUrl = process.env.REACT_APP_API_URL;
   const itemToEdit = location.state?.Business || {};
   const { Lat, Lng } = itemToEdit;
 
@@ -42,16 +43,16 @@ export default function Details() {
               {/* React Slick Slider */}
               <Slider {...settings}>
                 <div>
-                  <img src={`http://localhost:5000/image/${itemToEdit.logo}`} alt="Product 1" />
+                  <img src={`${apiUrl}/image/${itemToEdit.logo}`} alt="Product 1" />
                 </div>
                 <div>
-                  <img src={`http://localhost:5000/image/${itemToEdit.logo}`} alt="Product 2" />
+                  <img src={`${apiUrl}/image/${itemToEdit.logo}`} alt="Product 2" />
                 </div>
                 <div>
-                  <img src={`http://localhost:5000/image/${itemToEdit.logo}`} alt="Product 3" />
+                  <img src={`${apiUrl}/image/${itemToEdit.logo}`} alt="Product 3" />
                 </div>
                 <div>
-                  <img src={`http://localhost:5000/image/${itemToEdit.logo}`} alt="Product 3" />
+                  <img src={`${apiUrl}/image/${itemToEdit.logo}`} alt="Product 3" />
                 </div>
               </Slider>
             </div>
@@ -77,7 +78,7 @@ export default function Details() {
           <div className={styletwo.product_poss}>
             <h4>Company Information</h4>
             <div>
-              <img src={`http://localhost:5000/image/${itemToEdit.userImage}`} alt="Contact" />
+              <img src={`${apiUrl}/image/${itemToEdit.userImage}`} alt="Contact" />
             </div>
             <div>
               <h4><FaBuilding style={{ color: 'red' }} />{itemToEdit.Businessname}</h4>

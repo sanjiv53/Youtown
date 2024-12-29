@@ -20,7 +20,7 @@ export default function Product() {
   const navigate = useNavigate();
   const [editingItem, setEditingItem] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
-
+  const apiUrl = process.env.REACT_APP_API_URL;
   const openLoginModal = () => setIsLoginModalOpen(true);
   const closeLoginModal = () => setIsLoginModalOpen(false);
 
@@ -39,7 +39,7 @@ export default function Product() {
   // ---------------------------------------------get product-------------------------------
   useEffect(() => {
     if (user?.name) {
-      fetch(`http://localhost:5000/getbusinessproduct?name=${user.businessId}`)
+      fetch(`${apiUrl}/getbusinessproduct?name=${user.businessId}`)
         .then((response) => {
           if (!response.ok) {
             throw new Error("Failed to fetch products");
@@ -64,7 +64,7 @@ export default function Product() {
   };
  // -------------------------Remove----------------------------------
 const handleRemove = (id) => {
-  axios.delete(`http://localhost:5000/itemsDelet/${id}`)
+  axios.delete(`${apiUrl}/itemsDelet/${id}`)
     .then(() => {
       setProducts(Product.filter(product => product._id !== id)); 
      NotificationManager.success('Delet Product successfully', 'Success');

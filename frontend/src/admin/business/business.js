@@ -14,10 +14,10 @@ export default function Productlist() {
   const navigate = useNavigate();
   const [editingItem, setEditingItem] = useState(null);
     const [searchQuery, setSearchQuery] = useState("");
-    
+    const apiUrl = process.env.REACT_APP_API_URL;
   // ------------------------get  business----------------------
   useEffect(() => {
-    axios.get('http://localhost:5000/getbusiness')
+    axios.get(`${apiUrl}/getbusiness`)
       .then(response => {
         setBusiness(response.data);
         console.log(response.data);
@@ -35,7 +35,7 @@ export default function Productlist() {
 
   // -------------------------Business  Remove----------------------------------
   const handleRemove = (id) => {
-    axios.delete(`http://localhost:5000/businessDelet/${id}`)
+    axios.delete(`${apiUrl}/businessDelet/${id}`)
       .then(() => {
         setBusiness(Business.filter(Business => Business._id !== id));
         NotificationManager.success('Delet Product successfully', 'Success');

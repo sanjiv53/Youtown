@@ -18,7 +18,7 @@ export default function Productdetails() {
     const [editingItem, setEditingItem] = useState(null);
   const itemToEdit = location.state?.product || {};
   const { Lat, Lng } = itemToEdit.Vendor;
-
+  const apiUrl = process.env.REACT_APP_API_URL;
   // Replace 'YOUR_API_KEY' with your actual Google Maps API Key
   const apiKey = 'AIzaSyCz2meywgHm9S7PXA29clmCAQa-JDWoRtA';
   const mapSrc = `https://www.google.com/maps/embed/v1/view?key=${apiKey}&center=${Lat},${Lng}&zoom=14`;
@@ -38,7 +38,7 @@ export default function Productdetails() {
  useEffect(() => {
     if (itemToEdit?.Vendor) {
   
-      fetch(`http://localhost:5000/getbusinessproduct?name=${itemToEdit.Vendor._id}`)
+      fetch(`${apiUrl}/getbusinessproduct?name=${itemToEdit.Vendor._id}`)
         .then((response) => {
           if (!response.ok) {
             throw new Error("Failed to fetch products");
@@ -73,16 +73,16 @@ const handleProductDetails = (product) => {
             {/* React Slick Slider */}
             <Slider {...settings}>
               <div>
-                <img src={`http://localhost:5000/image/${itemToEdit.imagePath}`} alt="Product 1" />
+                <img src={`${apiUrl}/image/${itemToEdit.imagePath}`} alt="Product 1" />
               </div>
               <div>
-                <img src={`http://localhost:5000/image/${itemToEdit.imagePath}`} alt="Product 2" />
+                <img src={`${apiUrl}/image/${itemToEdit.imagePath}`} alt="Product 2" />
               </div>
               <div>
-                <img src={`http://localhost:5000/image/${itemToEdit.imagePath}`} alt="Product 3" />
+                <img src={`${apiUrl}/image/${itemToEdit.imagePath}`} alt="Product 3" />
               </div>
               <div>
-                <img src={`http://localhost:5000/image/${itemToEdit.imagePath}`} alt="Product 3" />
+                <img src={`${apiUrl}/image/${itemToEdit.imagePath}`} alt="Product 3" />
               </div>
             </Slider>
           </div>
@@ -112,7 +112,7 @@ const handleProductDetails = (product) => {
           <div className={styletwo.product_poss}>
           <h4>Company Information</h4>
             <div>
-              <img src={`http://localhost:5000/image/${itemToEdit.Vendor.userImage}`} alt="Contact" />
+              <img src={`${apiUrl}/image/${itemToEdit.Vendor.userImage}`} alt="Contact" />
             </div>
             <div>
               <h4><FaBuilding style={{ color: 'red' }} />{itemToEdit.Vendor.Businessname}</h4>
@@ -142,7 +142,7 @@ const handleProductDetails = (product) => {
         {Products.map((product) => (
           <div className={styletwo.productbox}>
             <div>
-              <img src={`http://localhost:5000/image/${product.imagePath}`} alt="Sale Product 1" />
+              <img src={`${apiUrl}/image/${product.imagePath}`} alt="Sale Product 1" />
             </div>
             <div className={styletwo.productdetails}>
             <a onClick={()=>{handleProductDetails(product)}} style={{cursor:'pointer'}}><h3>{product.name}</h3></a>

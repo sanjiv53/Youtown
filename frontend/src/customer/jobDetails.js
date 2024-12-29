@@ -19,7 +19,7 @@ import 'react-notifications/lib/notifications.css';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 export default function JobDetails() {
-
+  const apiUrl = process.env.REACT_APP_API_URL;
   const navigate = useNavigate();
   const location = useLocation();
   const itemToEdit= location.state?.job || {};
@@ -114,7 +114,7 @@ const Lng = itemToEdit?.Vendor?.Lng || 0;
     );
 
     try {
-      const response = await axios.post('http://localhost:5000/jobapply', formData, {
+      const response = await axios.post(`${apiUrl}/jobapply`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
       console.log('Response:', response.data);
@@ -128,7 +128,7 @@ const Lng = itemToEdit?.Vendor?.Lng || 0;
   };
   // ------------------------get category----------------------
   useEffect(() => {
-    axios.get('http://localhost:5000/getcatgory')
+    axios.get(`${apiUrl}/getcatgory`)
       .then(response => {
         setCategory(response.data);
         console.log(response.data);
@@ -149,16 +149,16 @@ const Lng = itemToEdit?.Vendor?.Lng || 0;
               {/* React Slick Slider */}
               <Slider {...settings}>
                 <div>
-                  <img src={`http://localhost:5000/image/${itemToEdit.Vendor.logo}`} alt="Product 1" />
+                  <img src={`${apiUrl}/image/${itemToEdit.Vendor.logo}`} alt="Product 1" />
                 </div>
                 <div>
-                  <img src={`http://localhost:5000/image/${itemToEdit.Vendor.logo}`} alt="Product 2" />
+                  <img src={`${apiUrl}/image/${itemToEdit.Vendor.logo}`} alt="Product 2" />
                 </div>
                 <div>
-                  <img src={`http://localhost:5000/image/${itemToEdit.Vendor.logo}`} alt="Product 3" />
+                  <img src={`${apiUrl}/image/${itemToEdit.Vendor.logo}`} alt="Product 3" />
                 </div>
                 <div>
-                  <img src={`http://localhost:5000/image/${itemToEdit.Vendor.logo}`} alt="Product 3" />
+                  <img src={`${apiUrl}/image/${itemToEdit.Vendor.logo}`} alt="Product 3" />
                 </div>
               </Slider>
             </div>
@@ -225,7 +225,7 @@ const Lng = itemToEdit?.Vendor?.Lng || 0;
           <div className={styletwo.job_pass}>
             <h4>Job Information</h4>
             <div>
-              <img src={`http://localhost:5000/image/${itemToEdit.Vendor.logo}`} alt="Contact" />
+              <img src={`${apiUrl}/image/${itemToEdit.Vendor.logo}`} alt="Contact" />
             </div>
             <div>
 
@@ -262,7 +262,7 @@ const Lng = itemToEdit?.Vendor?.Lng || 0;
             <h4>Company Information</h4>
 
             <div>
-              <img src={`http://localhost:5000/image/${itemToEdit.Vendor.logo}`} alt="Contact" />
+              <img src={`${apiUrl}/image/${itemToEdit.Vendor.logo}`} alt="Contact" />
             </div>
             <div>
               <h4><FaBuilding style={{ color: 'red' }} /> company</h4>

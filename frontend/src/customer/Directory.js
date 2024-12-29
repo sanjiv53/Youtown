@@ -17,9 +17,10 @@ export default function Directory(){
   const [searchQueryLocation, setSearchQueryLocation] = useState('');
   const [editingItem, setEditingItem] = useState(null);
   const navigate = useNavigate();
+  const apiUrl = process.env.REACT_APP_API_URL;
  // ------------------------get directory----------------------
  useEffect(() => {
-    axios.get('http://localhost:5000/getdirectoryfrontend')
+    axios.get(`${apiUrl}/getdirectoryfrontend`)
       .then(response => {
         setDirctory(response.data); 
         console.log(response.data); 
@@ -60,7 +61,7 @@ return(
       {filteredBusinesses.map((directory)=>(
             <div className={styletwo.directory_box}>
                 <div>
-                    <img src={`http://localhost:5000/image/${directory.logo}`}/>
+                    <img src={`${apiUrl}/image/${directory.logo}`}/>
                 </div>
                 <div className={styletwo.directory_details}>
                 <a onClick={()=>{handleDetails(directory)}} style={{cursor:'pointer'}}>  <h3>{directory.name}</h3></a>

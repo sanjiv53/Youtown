@@ -18,6 +18,7 @@ export default function Product() {
     const [category, setCategory] = useState([]);
     const [file, setFile] = useState(null);
     const [Vender, setVender] = useState([]);
+    const apiUrl = process.env.REACT_APP_API_URL;
     const [newItem, setNewItem] = useState({
         name: '',
         description: '',
@@ -52,7 +53,7 @@ export default function Product() {
         formData.append('price', newItem.price);
         formData.append('Vendor', newItem.Vendor);
         // Send formData to the backend
-        axios.post('http://localhost:5000/product', formData, {
+        axios.post(`${apiUrl}/product`, formData, {
             headers: {
                 'Content-Type': 'multipart/form-data',
             },
@@ -97,7 +98,7 @@ export default function Product() {
 
 // ------------------------get category----------------------
 useEffect(() => {
-    axios.get('http://localhost:5000/getcatgory')
+    axios.get(`${apiUrl}/getcatgory`)
       .then(response => {
         setCategory(response.data); 
         console.log(response.data); 
@@ -109,7 +110,7 @@ useEffect(() => {
 
 // ------------------------get subcategory----------------------
 useEffect(() => {
-    axios.get('http://localhost:5000/getsubcatgory')
+    axios.get(`${apiUrl}/getsubcatgory`)
       .then(response => {
         setsubCategory(response.data);
         console.log(response.data); 
@@ -121,7 +122,7 @@ useEffect(() => {
   
   // ------------------------get Vender----------------------
 useEffect(() => {
-    axios.get('http://localhost:5000/getAdminlogin')
+    axios.get(`${apiUrl}/getAdminlogin`)
       .then(response => {
         setVender(response.data); 
         console.log(response.data); 

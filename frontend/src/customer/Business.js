@@ -17,9 +17,10 @@ export default function Business(){
     const navigate = useNavigate();
     const [searchQuery, setSearchQuery] = useState("");
     const [searchQueryLocation, setSearchQueryLocation] = useState('');
+    const apiUrl = process.env.REACT_APP_API_URL;
         // ------------------------get  business----------------------
   useEffect(() => {
-    axios.get('http://localhost:5000/getbusinessfrontend')
+    axios.get(`${apiUrl}/getbusinessfrontend`)
       .then(response => {
         setBusiness(response.data);
         console.log(response.data);

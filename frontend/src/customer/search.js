@@ -19,7 +19,8 @@ export default function Search() {
   const searchQuery = queryParams.get("query") || "";
   const navigate = useNavigate();
   const [editingItem, setEditingItem] = useState(null);
-
+  const apiUrl = process.env.REACT_APP_API_URL;
+  
   const filteredLogin = Business.filter((item) =>
     item.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
@@ -34,7 +35,7 @@ export default function Search() {
   );
   // ------------------------get  business----------------------
   useEffect(() => {
-    axios.get('http://localhost:5000/getbusinessfrontend')
+    axios.get(`${apiUrl}/getbusinessfrontend`)
       .then(response => {
         setBusiness(response.data);
         console.log(response.data);
@@ -45,7 +46,7 @@ export default function Search() {
   }, []);
   // ------------------------get product----------------------
   useEffect(() => {
-    axios.get('http://localhost:5000/getproductfrontend')
+    axios.get(`${apiUrl}/getproductfrontend`)
       .then(response => {
         setProduct(response.data);
         console.log(response.data);
@@ -56,7 +57,7 @@ export default function Search() {
   }, []);
   // ------------------------get job----------------------
   useEffect(() => {
-    axios.get('http://localhost:5000/getjobfrontend')
+    axios.get(`${apiUrl}/getjobfrontend`)
       .then(response => {
         setJob(response.data);
         console.log(response.data);
@@ -68,7 +69,7 @@ export default function Search() {
 
   // ------------------------get property----------------------
   useEffect(() => {
-    axios.get('http://localhost:5000/getpropertyfrontend')
+    axios.get(`${apiUrl}/getpropertyfrontend`)
       .then(response => {
         setProperty(response.data);
         console.log(response.data);
@@ -106,7 +107,7 @@ export default function Search() {
           {filteredLogin.map((Business) => (
             <div className={styletwo.businessbox}>
               <div>
-                <img src={`http://localhost:5000/image/${Business.logo}`} />
+                <img src={`${apiUrl}/image/${Business.logo}`} />
               </div>
               <div className={styletwo.businessdetails}>
                 <a onClick={() => { handleDetails(Business) }} style={{ cursor: 'pointer' }}> <h3>{Business.name}</h3></a>
@@ -122,7 +123,7 @@ export default function Search() {
             {filteredproduct.map((product) => (
               <div className={styletwo.productbox}>
                 <div>
-                  <img src={`http://localhost:5000/image/${product.imagePath}`} />
+                  <img src={`${apiUrl}/image/${product.imagePath}`} />
                 </div>
                 <div className={styletwo.productdetails}>
                   <a onClick={() => { handleProductDetails(product) }} style={{ cursor: 'pointer' }}><h3>{product.name}</h3></a>
@@ -139,10 +140,10 @@ export default function Search() {
             {filteredjob.map((job) => (
               <div className={styletwo.Jobbox} style={{ marginBottom: '15px' }}>
                 <div >
-                  <img src={`http://localhost:5000/image/${job.Vendor.logo}`} className={styletwo.img} />
+                  <img src={`${apiUrl}/image/${job.Vendor.logo}`} className={styletwo.img} />
                 </div>
                 <div className={styletwo.jobimg}>
-                  <img src={`http://localhost:5000/image/${job.Vendor.logo}`} />
+                  <img src={`${apiUrl}/image/${job.Vendor.logo}`} />
                 </div>
                 <div className={styletwo.Jobdetails}>
                   <a onClick={() => { handleJobDetails(job) }}> <h3>{job.name}</h3></a>
@@ -161,7 +162,7 @@ export default function Search() {
             {filteredproperty.map((property) => (
               <div className={styletwo.Propertybox}>
                 <div >
-                  <img src={`http://localhost:5000/image/${property.imagePath}`} className={styletwo.img} />
+                  <img src={`${apiUrl}/image/${property.imagePath}`} className={styletwo.img} />
                 </div>
                 <div className={styletwo.Propertydetails}>
                   <a onClick={() => { handlePropertyDetails(property) }}>  <h3>{property.name}</h3></a>

@@ -26,6 +26,7 @@ export default function Property() {
   const [category, setCategory] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [items, setItems] = useState([]);
+  const apiUrl = process.env.REACT_APP_API_URL;
   const [newItem, setNewItem] = useState({
     name: '',
     description: '',
@@ -93,7 +94,7 @@ export default function Property() {
   };
   // -------------------------Remove----------------------------------
   const handleRemove = (id) => {
-    axios.delete(`http://localhost:5000/PropertyDelet/${id}`)
+    axios.delete(`${apiUrl}//PropertyDelet/${id}`)
       .then(() => {
         SetProperty(Property.filter(Property => Property._id !== id));
         NotificationManager.success('Delet Property successfully', 'Success');
@@ -122,7 +123,7 @@ export default function Property() {
     formData.append('price', newItem.price);
 
     // Send formData to the backend
-    axios.post('http://localhost:5000/property', formData, {
+    axios.post(`${apiUrl}//property`, formData, {
       headers: {
         'Content-Type': 'multipart/form-data',  // Important for handling file uploads
       },
@@ -146,7 +147,7 @@ export default function Property() {
 
   // ------------------------get category----------------------
   useEffect(() => {
-    axios.get('http://localhost:5000/getcatgory')
+    axios.get(`${apiUrl}/getcatgory`)
       .then(response => {
         setCategory(response.data); 
         
@@ -165,7 +166,7 @@ export default function Property() {
   // ---------------------------------------------get property-------------------------------
   useEffect(() => {
     if (user?.name) {
-      fetch(`http://localhost:5000/GETBusinessProperty?name=${user.businessId}`)
+      fetch(`${apiUrl}//GETBusinessProperty?name=${user.businessId}`)
         .then((response) => {
           if (!response.ok) {
             throw new Error("Failed to fetch products");

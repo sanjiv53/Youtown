@@ -1,5 +1,6 @@
 import React , { useState, useEffect }from "react";
 import { useLocation,useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import styletwo from './App.module.css';
 import Nav from './Navbar'; 
 import Fooder from './Footer';   
@@ -17,7 +18,6 @@ import job from './img/category/job_3850285.png';
 import product from './img/category/discount_10116079.png';
 import property from './img/category/house_8858068.png';
 import directory from './img/category/pamphlet.png';
-import axios from 'axios';
 import Carousel from "react-multi-carousel";
 import 'react-multi-carousel/lib/styles.css'; 
 
@@ -54,6 +54,8 @@ const responsive = {
     }
   ];
  function Home(){
+  const apiUrl = process.env.REACT_APP_API_URL;
+
    const [Business, setBusiness] = useState([]);
    const [Product, setProduct] = useState([]);
    const[Job,setJob]=useState([]);
@@ -61,9 +63,10 @@ const responsive = {
    const [searchQuery, setSearchQuery] = useState("");
    const navigate = useNavigate();
    const [editingItem, setEditingItem] = useState(null);
+   
     // ------------------------get  business----------------------
   useEffect(() => {
-    axios.get('http://localhost:5000/getbusinessfrontend')
+    axios.get(`${apiUrl}/getbusinessfrontend`)
       .then(response => {
         setBusiness(response.data);
         console.log(response.data);
@@ -74,7 +77,7 @@ const responsive = {
   }, []);
  // ------------------------get product----------------------
  useEffect(() => {
-  axios.get('http://localhost:5000/getproductfrontend')
+  axios.get(`${apiUrl}getproductfrontend`)
     .then(response => {
       setProduct(response.data); 
       console.log(response.data); 
@@ -86,7 +89,7 @@ const responsive = {
 
  // ------------------------get job----------------------
  useEffect(() => {
-  axios.get('http://localhost:5000/getjobfrontend')
+  axios.get(`${apiUrl}/getjobfrontend`)
     .then(response => {
       setJob(response.data); 
       console.log(response.data); 
@@ -98,7 +101,7 @@ const responsive = {
 
  // ------------------------get property----------------------
  useEffect(() => {
-  axios.get('http://localhost:5000/getpropertyfrontend')
+  axios.get(`${apiUrl}/getpropertyfrontend`)
     .then(response => {
       setProperty(response.data); 
       console.log(response.data); 
@@ -135,6 +138,7 @@ const handleJobDetails = (job) => {
     return(
         <>
        <Nav /> 
+      
         <div className={styletwo.category}>
             <div className={styletwo.Categorybox}>
             <a href="/business"><img src={business}/>

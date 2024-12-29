@@ -18,7 +18,7 @@ export default function PropertyEdit() {
      const [Vender, setVender] = useState([]);
     const [category, setCategory] = useState([]);
     const [file, setFile] = useState(null);
-
+    const apiUrl = process.env.REACT_APP_API_URL;
     const [newItem, setNewItem] = useState({
         name:itemToEdit.name || '',
        description:itemToEdit.description ||'',
@@ -55,7 +55,7 @@ export default function PropertyEdit() {
           }
         const editingItemId = itemToEdit._id;
         // Send formData to the backend
-        axios.put(`http://localhost:5000/propertyEdit/${editingItemId}`, formData, {
+        axios.put(`${apiUrl}/propertyEdit/${editingItemId}`, formData, {
             headers: {
                 'Content-Type': 'multipart/form-data',
             },
@@ -99,7 +99,7 @@ export default function PropertyEdit() {
 
 // ------------------------get category----------------------
 useEffect(() => {
-    axios.get('http://localhost:5000/getcatgory')
+    axios.get(`${apiUrl}/getcatgory`)
       .then(response => {
         setCategory(response.data); 
         console.log(response.data); 
@@ -111,7 +111,7 @@ useEffect(() => {
 
 // ------------------------get Vender----------------------
 useEffect(() => {
-    axios.get('http://localhost:5000/getAdminlogin')
+    axios.get(`${apiUrl}/getAdminlogin`)
       .then(response => {
         setVender(response.data); 
         console.log(response.data); 
@@ -146,7 +146,7 @@ useEffect(() => {
                             ></textarea> {/* Summernote editor */}
 
                         {existingImage && !file && (
-                          <img  src={`http://localhost:5000/image/${existingImage}`}  alt="Existing image" width="100"  onError={(e) => {  e.target.onerror = null;  e.target.src = ''; }}  />
+                          <img  src={`${apiUrl}/image/${existingImage}`}  alt="Existing image" width="100"  onError={(e) => {  e.target.onerror = null;  e.target.src = ''; }}  />
                              )}
                             {file && <img src={URL.createObjectURL(file)} alt="Preview" style={{width:'40px', height:'40px'}} />} Preview selected image<br />
                             <label>Property Image</label><br />

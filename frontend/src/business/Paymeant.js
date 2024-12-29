@@ -14,14 +14,14 @@ const PhonePePayment = () => {
     mobile: '',
     amount: '',
   });
-
+  const apiUrl = process.env.REACT_APP_API_URL;
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handlePayment = async () => {
     try {
-      const response = await axios.post('http://localhost:5000/api/phonepe/payment', formData);
+      const response = await axios.post(`${apiUrl}/api/phonepe/payment`, formData);
       window.location.href = response.data.redirectUrl;
     } catch (error) {
       console.error(error);

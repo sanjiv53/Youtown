@@ -14,9 +14,10 @@ export default function Productlist(){
   const navigate = useNavigate();
   const [editingItem, setEditingItem] = useState(null);
    const [searchQuery, setSearchQuery] = useState("");
+   const apiUrl = process.env.REACT_APP_API_URL;
   // ------------------------get property----------------------
   useEffect(() => {
-    axios.get('http://localhost:5000/getdirectory')
+    axios.get(`${apiUrl}/getdirectory`)
       .then(response => {
         setDirectory(response.data);
         console.log(response.data);
@@ -33,7 +34,7 @@ export default function Productlist(){
   };
 //------------------------------------dirctory remove------------------------
 const handleRemove = (id) => {
-  axios.delete(`http://localhost:5000/directoryDelet/${id}`)
+  axios.delete(`${apiUrl}/directoryDelet/${id}`)
     .then(() => {
       setDirectory(Directory.filter(Directory => Directory._id !== id));
       NotificationManager.success('Delet Product successfully', 'Success');

@@ -23,7 +23,7 @@ export default function Jobedit() {
     const [Vender, setVender] = useState([]);
     const [category, setCategory] = useState([]);
     const [file, setFile] = useState(null);
-
+    const apiUrl = process.env.REACT_APP_API_URL;
     const [newItem, setNewItem] = useState({
         name: itemToEdit.name || '',
         description: itemToEdit.description || '',
@@ -101,7 +101,7 @@ export default function Jobedit() {
     
         const editingItemId = itemToEdit._id;
         // Send formData to the backend
-        axios.put(`http://localhost:5000/jobEdit/${editingItemId}`, formData, {
+        axios.put(`${apiUrl}/jobEdit/${editingItemId}`, formData, {
             headers: {
                 'Content-Type': 'multipart/form-data',
             },
@@ -145,7 +145,7 @@ export default function Jobedit() {
 
     // ------------------------get category----------------------
     useEffect(() => {
-        axios.get('http://localhost:5000/getcatgory')
+        axios.get(`${apiUrl}/getcatgory`)
             .then(response => {
                 setCategory(response.data);
                 console.log(response.data);
@@ -157,7 +157,7 @@ export default function Jobedit() {
 
     // ------------------------get Vender----------------------
     useEffect(() => {
-        axios.get('http://localhost:5000/getAdminlogin')
+        axios.get(`${apiUrl}/getAdminlogin`)
             .then(response => {
                 setVender(response.data);
                 console.log(response.data);

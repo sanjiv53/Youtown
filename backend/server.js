@@ -1062,6 +1062,66 @@ app.post("/category", (req, res) => {
     });
 });
 
+
+//-----------------------category Edit---------------------------//
+app.post("/CategoryEdit/:id?", async (req, res) => {
+  const { id } = req.params; 
+  const { name, type } = req.body;
+
+  // Validate input
+  if (!name || !type) {
+    return res.status(400).json({ error: "Both 'name' and 'type' are required" });
+  }
+
+  try {
+    if (id) {
+      const updatedCategory = await Category.findByIdAndUpdate(
+        id,
+        { name, type },
+        { new: true, runValidators: true } 
+      );
+
+      if (!updatedCategory) {
+        return res.status(404).json({ error: "Category not found" });
+      }
+
+      return res.status(200).json({
+        message: "Category updated successfully",
+        category: updatedCategory,
+      });
+    }
+    const newCategory = new Category({ name, type });
+    const savedCategory = await newCategory.save();
+
+    return res.status(201).json({
+      message: "Category created successfully",
+      category: savedCategory,
+    });
+  } catch (error) {
+    console.error("Error processing category:", error);
+
+    // Handle validation errors
+    if (error.name === "ValidationError") {
+      return res.status(400).json({ error: "Invalid data provided", details: error.errors });
+    }
+
+    return res.status(500).json({ error: "Internal server error" });
+  }
+});
+//----------------------------delet category-----------------------------------
+app.delete('/categoryDelet/:id', async (req, res) => {
+  try {
+    const deletedItem = await  Category.findByIdAndDelete(req.params.id);
+
+    if (!deletedItem) {
+      return res.status(404).json({ message: 'Item not found' });
+    }
+
+    res.json({ message: 'Item deleted successfully' });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
 // -----------------------subcatgory ----------------------------//
 
 app.post("/subcategory", (req, res) => {
@@ -1089,7 +1149,65 @@ app.post("/subcategory", (req, res) => {
       res.status(500).json({ error: "Error saving category" });
     });
 });
+//----------------------------delet subcategory-----------------------------------
+app.delete('/subcategoryDelet/:id', async (req, res) => {
+  try {
+    const deletedItem = await subCategory.findByIdAndDelete(req.params.id);
 
+    if (!deletedItem) {
+      return res.status(404).json({ message: 'Item not found' });
+    }
+
+    res.json({ message: 'Item deleted successfully' });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
+//-----------------------subcategory Edit---------------------------//
+app.post("/SubCategoryEdit/:id?", async (req, res) => {
+  const { id } = req.params; 
+  const { name, type } = req.body;
+
+  // Validate input
+  if (!name || !type) {
+    return res.status(400).json({ error: "Both 'name' and 'type' are required" });
+  }
+
+  try {
+    if (id) {
+      const updatedCategory = await subCategory.findByIdAndUpdate(
+        id,
+        { name, type },
+        { new: true, runValidators: true } 
+      );
+
+      if (!updatedCategory) {
+        return res.status(404).json({ error: "Category not found" });
+      }
+
+      return res.status(200).json({
+        message: "Category updated successfully",
+        category: updatedCategory,
+      });
+    }
+    const newCategory = new Category({ name, type });
+    const savedCategory = await newCategory.save();
+
+    return res.status(201).json({
+      message: "Category created successfully",
+      category: savedCategory,
+    });
+  } catch (error) {
+    console.error("Error processing category:", error);
+
+    // Handle validation errors
+    if (error.name === "ValidationError") {
+      return res.status(400).json({ error: "Invalid data provided", details: error.errors });
+    }
+
+    return res.status(500).json({ error: "Internal server error" });
+  }
+});
 // -----------------------Admin sign ----------------------------//
 
 app.post("/sign", async (req, res) => {

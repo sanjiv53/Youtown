@@ -16,9 +16,10 @@ export default function Propertylist(){
   const navigate = useNavigate();
   const [editingItem, setEditingItem] = useState(null);
     const [searchQuery, setSearchQuery] = useState("");
+    const apiUrl = process.env.REACT_APP_API_URL;
   // ------------------------get property----------------------
 useEffect(() => {
-  axios.get('http://localhost:5000/getproperty')
+  axios.get(`${apiUrl}/getproperty`)
     .then(response => {
       setProperty(response.data); 
       console.log(response.data); 
@@ -35,7 +36,7 @@ const handleEdit = (property) => {
 
 // -------------------------Remove----------------------------------
 const handleRemove = (id) => {
-  axios.delete(`http://localhost:5000/PropertyDelet/${id}`)
+  axios.delete(`${apiUrl}/PropertyDelet/${id}`)
     .then(() => {
       setProperty(Property.filter(property => property._id !== id)); 
      NotificationManager.success('Delet property successfully', 'Success');

@@ -30,6 +30,7 @@ export default function Product() {
   const [Jobs, SetJob] = useState([]);
   const [editingItem, setEditingItem] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
+  const apiUrl = process.env.REACT_APP_API_URL;
   const [items, setItems] = useState(
     {
       Address: '',
@@ -179,7 +180,7 @@ export default function Product() {
     );
 
     try {
-      const response = await axios.post('http://localhost:5000/job', formData, {
+      const response = await axios.post(`${apiUrl}/job`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
       console.log('Response:', response.data);
@@ -193,7 +194,7 @@ export default function Product() {
   };
   // ------------------------get category----------------------
   useEffect(() => {
-    axios.get('http://localhost:5000/getcatgory')
+    axios.get(`${apiUrl}/getcatgory`)
       .then(response => {
         setCategory(response.data);
         console.log(response.data);
@@ -205,7 +206,7 @@ export default function Product() {
   // -----------------------get vender----------------
 
   useEffect(() => {
-    axios.get('http://localhost:5000/getAdminlogin')
+    axios.get(`${apiUrl}/getAdminlogin`)
       .then(response => {
         setVender(response.data);
         console.log(response.data);
@@ -225,7 +226,7 @@ export default function Product() {
   // ---------------------------------------------get job-------------------------------
   useEffect(() => {
     if (user?.name) {
-      fetch(`http://localhost:5000/getbusinessjob?name=${user.businessId}`)
+      fetch(`${apiUrl}/getbusinessjob?name=${user.businessId}`)
         .then((response) => {
           if (!response.ok) {
             throw new Error("Failed to fetch products");
@@ -251,7 +252,7 @@ export default function Product() {
   };
   // -------------------------Remove----------------------------------
   const handleRemove = (id) => {
-    axios.delete(`http://localhost:5000/JobsDelet/${id}`)
+    axios.delete(`${apiUrl}/JobsDelet/${id}`)
       .then(() => {
         SetJob(Jobs.filter(Jobs => Jobs._id !== id));
         NotificationManager.success('Delet Jobs successfully', 'Success');

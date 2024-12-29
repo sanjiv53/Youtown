@@ -12,7 +12,7 @@ export default function Businessdashboard(){
       const [Jobs, SetJob] = useState([]);
     const location = useLocation();
    const [currentDate, setCurrentDate] = useState(new Date().toDateString());
-      
+   const apiUrl = process.env.REACT_APP_API_URL;
        
  // -----------------------------------------locaton--------------------------------
   useEffect(() => {
@@ -27,7 +27,7 @@ export default function Businessdashboard(){
   // ---------------------------------------------get product-------------------------------
     useEffect(() => {
       if (user?.name) {
-        fetch(`http://localhost:5000/getbusinessproduct?name=${user.businessId}`)
+        fetch(`${apiUrl}/getbusinessproduct?name=${user.businessId}`)
           .then((response) => {
             if (!response.ok) {
               throw new Error("Failed to fetch products");
@@ -48,7 +48,7 @@ export default function Businessdashboard(){
   // ---------------------------------------------get property-------------------------------
   useEffect(() => {
     if (user?.name) {
-      fetch(`http://localhost:5000/GETBusinessProperty?name=${user.businessId}`)
+      fetch(`${apiUrl}/GETBusinessProperty?name=${user.businessId}`)
         .then((response) => {
           if (!response.ok) {
             throw new Error("Failed to fetch products");
@@ -69,7 +69,7 @@ export default function Businessdashboard(){
  // ---------------------------------------------get job-------------------------------
   useEffect(() => {
     if (user?.name) {
-      fetch(`http://localhost:5000/getbusinessjob?name=${user.businessId}`)
+      fetch(`${apiUrl}/getbusinessjob?name=${user.businessId}`)
         .then((response) => {
           if (!response.ok) {
             throw new Error("Failed to fetch products");

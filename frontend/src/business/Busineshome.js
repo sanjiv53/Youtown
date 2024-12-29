@@ -15,7 +15,7 @@ export default function ToggleSidebar() {
   const [editingItem, setEditingItem] = useState(null);
   const navigate = useNavigate();
   const [products, setProducts] = useState([]);
-
+  const apiUrl = process.env.REACT_APP_API_URL;
   //--------------------------------------sileder-------------------------------------
   const toggleSidebar = () => {
     setIsopen(!isOpen);
@@ -36,7 +36,7 @@ export default function ToggleSidebar() {
     // ----------------------------Business Edit------------------------------
     useEffect(() => {
       if (user?.name) {
-        fetch(`http://localhost:5000/getbusinessproduct?name=${user._id}`)
+        fetch(`${apiUrl}/getbusinessproduct?name=${user._id}`)
           .then((response) => {
             if (!response.ok) {
               throw new Error("Failed to fetch products");

@@ -15,9 +15,10 @@ export default function Admin(){
   const navigate = useNavigate();
   const [editingItem, setEditingItem] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
+  const apiUrl = process.env.REACT_APP_API_URL;
   // ------------------------get property----------------------
   useEffect(() => {
-    axios.get('http://localhost:5000/getLogin')
+    axios.get(`${apiUrl}/getLogin`)
       .then(response => {
         setlogin(response.data);
         console.log(response.data);

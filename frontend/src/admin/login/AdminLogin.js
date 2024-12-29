@@ -14,7 +14,7 @@ export default function Login(){
      const [loginCredentials, setLoginCredentials] = useState({ email: '', password: '' }); 
     const [showPassword, setShowPassword] = useState(false); 
     const navigate = useNavigate();
-
+    const apiUrl = process.env.REACT_APP_API_URL;
      // Toggle password visibility
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -22,7 +22,7 @@ export default function Login(){
 
  const handleLogin = (e) => {
     e.preventDefault();
-    axios.post('http://localhost:5000/login', loginCredentials)  
+    axios.post(`${apiUrl}/login`, loginCredentials)  
       .then(response => {
         // alert( "Login successful");
         const userData = response.data.user;

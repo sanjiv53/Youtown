@@ -23,7 +23,7 @@ import "summernote/dist/summernote-lite.js"; // Import Summernote JS
   const [file, setFile] = useState(null); 
   const [Userfile, setUserFile] = useState(null);
   const [newItem, setNewItem] = useState({ name: '',email:'',phone1:'', password: '',  businessId:'' });
-  
+  const apiUrl = process.env.REACT_APP_API_URL;
   const navigate = useNavigate();
 
     // Toggle password visibility
@@ -65,7 +65,7 @@ import "summernote/dist/summernote-lite.js"; // Import Summernote JS
       );
   
       try {
-          const businessResponse = await axios.post('http://localhost:5000/business', formData, {
+          const businessResponse = await axios.post(`${apiUrl}/business`, formData, {
               headers: { 'Content-Type': 'multipart/form-data' },
           });
   
@@ -85,7 +85,7 @@ import "summernote/dist/summernote-lite.js"; // Import Summernote JS
               businessId,
           };
           console.log('Signup Data:', signupData);
-          const signupResponse = await axios.post('http://localhost:5000/Businesssign', signupData);
+          const signupResponse = await axios.post(`${apiUrl}/Businesssign`, signupData);
           console.log('Signup Response:', signupResponse.data);
   
           // Optionally update UI

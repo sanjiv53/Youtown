@@ -12,7 +12,7 @@ import { NotificationContainer } from 'react-notifications';
 import 'react-notifications/lib/notifications.css';
 
 export default function Product() {
-  
+    const apiUrl = process.env.REACT_APP_API_URL;
     const [category, setCategory] = useState([]);
     const inputRef = useRef(null);
     const editorRef = useRef(null);
@@ -86,7 +86,7 @@ export default function Product() {
         );
     
         try {
-            const response = await axios.post('http://localhost:5000/dirctory', formData, {
+            const response = await axios.post(`${apiUrl}/dirctory`, formData, {
                 headers: { 'Content-Type': 'multipart/form-data' },
             });
             console.log('Response:', response.data);
@@ -164,7 +164,7 @@ export default function Product() {
 
 // ------------------------get category----------------------
 useEffect(() => {
-    axios.get('http://localhost:5000/getcatgory')
+    axios.get(`${apiUrl}/getcatgory`)
       .then(response => {
         setCategory(response.data); 
         console.log(response.data); 

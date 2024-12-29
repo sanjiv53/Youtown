@@ -17,6 +17,7 @@ export default function Property() {
     const [category, setCategory] = useState([]);
     const [file, setFile] = useState(null);
     const [items, setItems] = useState([]);
+    const apiUrl = process.env.REACT_APP_API_URL;
     const [newItem, setNewItem] = useState({
         name: '',
         description: '',
@@ -49,7 +50,7 @@ export default function Property() {
         formData.append('price', newItem.price);
 
         // Send formData to the backend
-        axios.post('http://localhost:5000/property', formData, {
+        axios.post(`${apiUrl}/property`, formData, {
             headers: {
                 'Content-Type': 'multipart/form-data',  // Important for handling file uploads
             },
@@ -96,7 +97,7 @@ export default function Property() {
 
 // ------------------------get category----------------------
 useEffect(() => {
-    axios.get('http://localhost:5000/getcatgory')
+    axios.get(`${apiUrl}/getcatgory`)
       .then(response => {
         setCategory(response.data); // Set the items in state
         console.log(response.data); // Log the data to check the imagePath
@@ -108,7 +109,7 @@ useEffect(() => {
 
 // ------------------------get Vender----------------------
 useEffect(() => {
-    axios.get('http://localhost:5000/getAdminlogin')
+    axios.get(`${apiUrl}/getAdminlogin`)
       .then(response => {
         setVender(response.data); 
         console.log(response.data); 

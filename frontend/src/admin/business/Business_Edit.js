@@ -21,6 +21,7 @@ export default function Product() {
     const editorRef = useRef(null);
     const [file, setFile] = useState(null);
     const [Userfile, setUserFile] = useState(null);
+    const apiUrl = process.env.REACT_APP_API_URL;
     const [items, setItems] = useState(
         {
             Address:itemToEdit. Address||'',
@@ -101,7 +102,7 @@ export default function Product() {
         } 
         const editingItemId = itemToEdit._id;
         try {
-            const response = await axios.put(`http://localhost:5000/businessEdit/${editingItemId}`, formData, {
+            const response = await axios.put(`${apiUrl}/businessEdit/${editingItemId}`, formData, {
                 headers: { 'Content-Type': 'multipart/form-data' },
             });
             console.log('Response:', response.data);
@@ -122,7 +123,7 @@ export default function Product() {
       const handleEditSubmit = (e) => {
         e.preventDefault();
     
-        axios.put(`http://localhost:5000/businesssignEdit/${editingItememail}`, newItem) // Assume newItem contains the ID of the item being edited
+        axios.put(`${apiUrl}/businesssignEdit/${editingItememail}`, newItem) // Assume newItem contains the ID of the item being edited
             .then(response => {
                 const updatedItems = items.map(item => 
                     editingItememail === newItem.email ? response.data : item
@@ -197,7 +198,7 @@ export default function Product() {
 
 // ------------------------get category----------------------
 useEffect(() => {
-    axios.get('http://localhost:5000/getcatgory')
+    axios.get(`${apiUrl}/getcatgory`)
       .then(response => {
         setCategory(response.data); 
         console.log(response.data); 
@@ -235,7 +236,7 @@ useEffect(() => {
                                 </div>
                                 <div>
                                 {existingImage && !file && (
-                                         <img  src={`http://localhost:5000/image/${existingImage}`}  alt="Existing image" width="100"  onError={(e) => {  e.target.onerror = null;  e.target.src = ''; }}  />
+                                         <img  src={`${apiUrl}/image/${existingImage}`}  alt="Existing image" width="100"  onError={(e) => {  e.target.onerror = null;  e.target.src = ''; }}  />
                                        )}
                                     {file && <img src={URL.createObjectURL(file)} alt="Preview" style={{ width: '40px', height: '40px' }} />} {/* Preview selected image */}<br />
                                     <label>Logo Image</label><br />
@@ -306,7 +307,7 @@ useEffect(() => {
                                 </div>
                                 <div>
                                 {existingImagetwo && !Userfile && (
-                                         <img  src={`http://localhost:5000/image/${existingImagetwo}`}  alt="Existing image" width="100"  onError={(e) => {  e.target.onerror = null;  e.target.src = ''; }}  />
+                                         <img  src={`${apiUrl}/image/${existingImagetwo}`}  alt="Existing image" width="100"  onError={(e) => {  e.target.onerror = null;  e.target.src = ''; }}  />
                                        )}
                                     {Userfile && <img src={URL.createObjectURL(Userfile)} alt="Preview" style={{ width: '40px', height: '40px' }} />} {/* Preview selected image */}<br />
                                     <label> Image</label><br />

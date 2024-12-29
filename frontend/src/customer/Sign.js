@@ -18,6 +18,7 @@ import 'react-notifications/lib/notifications.css';
     const [showPassword, setShowPassword] = useState(false); 
     const [newItem, setNewItem] = useState({ name: '',email:'',phone:'', password: '' });
     const navigate = useNavigate();
+    const apiUrl = process.env.REACT_APP_API_URL;
 
       // Toggle password visibility
       const togglePasswordVisibility = () => {
@@ -26,7 +27,7 @@ import 'react-notifications/lib/notifications.css';
       // -------------login-------------------
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('http://localhost:5000/usersign', newItem)
+    axios.post(`${apiUrl}/usersign`, newItem)
       .then(response => {
         setItems([...items, response.data]); // Add new item to list
         setNewItem({ name: '',email:'',phone:'', password: ''}); // Reset form

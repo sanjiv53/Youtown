@@ -10,6 +10,7 @@ import 'react-notifications/lib/notifications.css';
 
 export default function Category() {
   const [category, setItems] = useState([]);
+  const apiUrl = process.env.REACT_APP_API_URL;
   const [activeTab, setActiveTab] = useState(1); // Track the active tab
   const [newItem, setNewItem] = useState({
     name: '',
@@ -36,7 +37,7 @@ export default function Category() {
     console.log('Category Data:', newItem);
 
     // Send the data directly as JSON (not FormData)
-    axios.post('http://localhost:5000/category', newItem)
+    axios.post(`${apiUrl}/category`, newItem)
       .then(response => {
         console.log('Server response:', response);  
     
@@ -64,7 +65,7 @@ export default function Category() {
 
     console.log('Category Data:', newItem);
 
-    axios.post('http://localhost:5000/subcategory', newItem)
+    axios.post(`${apiUrl}/subcategory`, newItem)
       .then(response => {
         console.log('Server response:', response);  
        
@@ -80,7 +81,7 @@ export default function Category() {
   };
 // ------------------------get category----------------------
   useEffect(() => {
-    axios.get('http://localhost:5000/getcatgory')
+    axios.get(`${apiUrl}/getcatgory`)
       .then(response => {
         setItems(response.data); // Set the items in state
         console.log(response.data); // Log the data to check the imagePath

@@ -19,7 +19,7 @@ export default function Sign(){
         email:itemToEdit.email ||'',
         password:itemToEdit.password || '' });
     const navigate = useNavigate();
-
+    const apiUrl = process.env.REACT_APP_API_URL;
      // Toggle password visibility
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -28,7 +28,7 @@ export default function Sign(){
   const editingItememail = itemToEdit.email;
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.put(`http://localhost:5000/signEdit/${editingItememail}`, newItem)
+    axios.put(`${apiUrl}/signEdit/${editingItememail}`, newItem)
       .then(response => {
         const updatedItems = items.map(item => 
             editingItememail === newItem.email ? response.data : item

@@ -22,6 +22,7 @@ export default function Product() {
     const [subcategory, setsubCategory] = useState([]);
     const [category, setCategory] = useState([]);
     const [Vender, setVender] = useState([]);
+    const apiUrl = process.env.REACT_APP_API_URL;
     const [newItem, setNewItem] = useState({
         name:itemToEdit.name || '',
         description:itemToEdit.description ||'',
@@ -76,7 +77,7 @@ export default function Product() {
 
     // ------------------------get category----------------------
     useEffect(() => {
-        axios.get('http://localhost:5000/getcatgory')
+        axios.get(`${apiUrl}/getcatgory`)
             .then(response => {
                 setCategory(response.data);
                 console.log(response.data);
@@ -88,7 +89,7 @@ export default function Product() {
 
     // ------------------------get subcategory----------------------
     useEffect(() => {
-        axios.get('http://localhost:5000/getsubcatgory')
+        axios.get(`${apiUrl}/getsubcatgory`)
             .then(response => {
                 setsubCategory(response.data);
                 console.log(response.data);
@@ -120,7 +121,7 @@ export default function Product() {
           }
         const editingItemId = itemToEdit._id;
         // Send formData to the backend
-        axios.put(`http://localhost:5000/productEdit/${editingItemId}`, formData, {
+        axios.put(`${apiUrl}/productEdit/${editingItemId}`, formData, {
             headers: {
                 'Content-Type': 'multipart/form-data',
             },

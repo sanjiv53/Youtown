@@ -37,6 +37,7 @@ export default function ImageUploader() {
   const [existingImage, setExistingImage] = useState('');
   const [existingImagetwo, setExistingImagetwo] = useState('');
   const [businessProfileid, businessProfile] = useState('');
+  const apiUrl = process.env.REACT_APP_API_URL;
   // -----------------------------------------locaton--------------------------------
   useEffect(() => {
     const storedUser = localStorage.getItem('user');
@@ -50,7 +51,7 @@ export default function ImageUploader() {
 
   useEffect(() => {
     if (user?.name) {
-      fetch(`http://localhost:5000/getbusinessprofile?name=${user.businessId}`)
+      fetch(`${apiUrl}/getbusinessprofile?name=${user.businessId}`)
         .then((response) => {
           if (!response.ok) {
             throw new Error("Failed to fetch products");
@@ -241,7 +242,7 @@ export default function ImageUploader() {
     }
     const editingItemId = businessProfileid;
     try {
-      const response = await axios.put(`http://localhost:5000/businessEdit/${editingItemId}`, formData, {
+      const response = await axios.put(`${apiUrl}/businessEdit/${editingItemId}`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
       console.log('Response:', response.data);
@@ -257,7 +258,7 @@ export default function ImageUploader() {
   
 // ------------------------get category----------------------
 useEffect(() => {
-  axios.get('http://localhost:5000/getcatgory')
+  axios.get(`${apiUrl}/getcatgory`)
     .then(response => {
       setCategory(response.data); 
       console.log(response.data); 
@@ -294,7 +295,7 @@ useEffect(() => {
                       <div
                         id="imagePreview"
                         style={{
-                          backgroundImage: `url(http://localhost:5000/image/${existingImage})`,
+                          backgroundImage: `url(${apiUrl}/image/${existingImage})`,
                         }}
                       ></div>
                     ) : (
@@ -330,7 +331,7 @@ useEffect(() => {
                     <div
                       id="imageTwoPreview"
                       style={{
-                        backgroundImage: `url(http://localhost:5000/image/${existingImagetwo})`,
+                        backgroundImage: `url(${apiUrl}/image/${existingImagetwo})`,
                       }}
                     ></div>
                   ) : (

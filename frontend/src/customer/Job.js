@@ -15,10 +15,10 @@ export default function Job() {
     const navigate = useNavigate();
     const [searchQuery, setSearchQuery] = useState("");
     const [searchQueryLocation, setSearchQueryLocation] = useState('');
-
+    const apiUrl = process.env.REACT_APP_API_URL;
     // ------------------------get job----------------------
     useEffect(() => {
-        axios.get('http://localhost:5000/getjobfrontend')
+        axios.get(`${apiUrl}/getjobfrontend`)
             .then(response => {
                 setJob(response.data);
                 console.log(response.data);
@@ -59,7 +59,7 @@ export default function Job() {
                 <div className={styletwo.job_page_name}>
                     <div className={styletwo.job_page_img}>
                         <div>
-                            <img src={`http://localhost:5000/image/${job.Vendor.logo}`} />
+                            <img src={`${apiUrl}/image/${job.Vendor.logo}`} />
                         </div>
                         <div className={styletwo.job_page_img_details}>
                         <a onClick={()=>{handleJobDetails(job)}}>  <h3>HIRING  <button>{job.name}</button></h3></a>

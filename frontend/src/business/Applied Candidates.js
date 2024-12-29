@@ -12,6 +12,7 @@ export default function Applied(){
    const [Jobs, SetJob] = useState([]);
    const location = useLocation();
     const [user, setUser] = useState(null);
+    const apiUrl = process.env.REACT_APP_API_URL;
     // -----------------------------------------------Location----------------------------------
      useEffect(() => {
        const storedUser = localStorage.getItem('user');
@@ -25,7 +26,7 @@ export default function Applied(){
   // ---------------------------------------------get job-------------------------------
   useEffect(() => {
     if (user?.name) {
-      fetch(`http://localhost:5000/getjobapplyfrontend?name=${user._id}`)
+      fetch(`${apiUrl}/getjobapplyfrontend?name=${user._id}`)
         .then((response) => {
           if (!response.ok) {
             throw new Error("Failed to fetch products");
@@ -45,7 +46,7 @@ export default function Applied(){
   }, [user]);
    // -------------------------Remove----------------------------------
    const handleRemove = (id) => {
-    axios.delete(`http://localhost:5000/Jobsapplydelet/${id}`)
+    axios.delete(`${apiUrl}/Jobsapplydelet/${id}`)
       .then(() => {
         SetJob(Jobs.filter(Jobs => Jobs._id !== id));
         NotificationManager.success('Delet Jobs successfully', 'Success');
@@ -65,7 +66,7 @@ export default function Applied(){
             {Jobs.map((job, index) => (
             <div className={styles.jobapply_box}>
               <div>
-                <img src={`http://localhost:5000/image/${job.Image}`}/>
+                <img src={`${apiUrl}/image/${job.Image}`}/>
                 </div>
                 <div className={styles.jobapply_box_details}>
                <h2>Name: <span>{job.name}</span></h2>
@@ -76,7 +77,7 @@ export default function Applied(){
                 <h2>Qualification: <span>{job.Qualification}</span></h2>
                 <h2>Address: <span>{job.Address}</span></h2>
                 <h2>phone: <span>{job.phone},{job.phone1}</span></h2>
-               <a href={`http://localhost:5000/image/${job.resume}`}> <button>Resume <FaAddressCard /></button></a>
+               <a href={`${apiUrl}/image/${job.resume}`}> <button>Resume <FaAddressCard /></button></a>
                &nbsp; &nbsp;<button  onClick={() => handleRemove(job._id)} style={{ cursor: 'pointer' }}>Delet <MdDelete /></button>
                </div>
            </div>

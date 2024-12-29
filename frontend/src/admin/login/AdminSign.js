@@ -14,7 +14,7 @@ export default function Sign(){
     const [showPassword, setShowPassword] = useState(false); 
     const [newItem, setNewItem] = useState({ name: '',email:'', password: '' });
     const navigate = useNavigate();
-
+    const apiUrl = process.env.REACT_APP_API_URL;
      // Toggle password visibility
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -22,7 +22,7 @@ export default function Sign(){
   // -------------login-------------------
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('http://localhost:5000/sign', newItem)
+    axios.post(`${apiUrl}/sign`, newItem)
       .then(response => {
         setItems([...items, response.data]); // Add new item to list
         setNewItem({ name: '',email:'', password: ''}); // Reset form
