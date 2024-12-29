@@ -1,0 +1,439 @@
+h2{
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+a{
+  color: black;
+  text-decoration: none;
+}
+
+#navBar {
+    width:100%;
+    background-color:rgb(238, 247, 247);
+    color: rgb(15, 14, 14);
+     padding: 10px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    display: flex;
+    justify-content:space-between;
+    align-items:center;
+    /* gap: 10%; */
+   }
+   #navBar div{
+        
+             display: flex;
+   }
+   #navBar  h3{
+    font-size: 20px;
+    text-align: end;
+   }  
+
+   .usericon {
+    position: relative;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .userdropdown ul {
+    position: absolute;
+   
+    right: 0;
+    background-color: #fff;
+    color: #333;
+  
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 150px;
+    display: block;
+    z-index: 1000;
+    display: flex;
+    gap: 15px;
+    flex-direction: column;
+    padding: 5px;
+    list-style: none;
+  }
+
+  .userdropdown ul li {
+    font-size: 14px;
+    font-weight: 400;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  } 
+  .display {
+    display: flex;
+   flex-direction: row;
+   width: 100%;
+  }
+  .leftpanel {
+      background-color: #fafafa;
+    height: calc(100vh - 30px);
+    width: 18.8vw;
+    padding: 8px;
+}
+.leftpanel ul li a{
+             color: black;
+             text-decoration: none;
+         }
+  .rightpanel {
+              height: calc(100vh - 30px);
+              width: calc(100vw - 10.7vw);
+             background-color: rgb(228, 220, 220);
+             overflow-y: scroll; 
+            
+             }
+ .leftpanel ul{
+                display: flex;
+               
+                flex-direction: column;
+                 gap: 40px;
+               }
+.leftpanel ul li{
+               width: 100px;
+            list-style-type: none;
+            cursor: pointer;
+             font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+} 
+.leftpanel ul li::after{
+    display      : block;
+    content      : '';
+    border-bottom: solid 2px #fc9106;
+    transform    : scaleX(0);
+    transition   : transform 300ms ease-in-out;
+    text-decoration: none;
+} 
+ .leftpanel img{
+                width: 200px;
+               }
+.leftpanel ul li:hover::after{
+                    transform: scaleX(1);
+                    text-decoration: none;
+                   }  
+                   
+    /*---------------------------category----------------------------  */
+ .admin_category_box{
+                     display: flex;
+                     justify-content: center;
+                     align-self:center;
+                     width: 100%;
+}
+.admin_category_box form{
+                        background-color: rgb(255, 255, 255);
+                        width: 350px;
+                        padding: 10px;
+                        border-radius: 5px;
+                        text-align: center;
+                        box-shadow: 0px 0px 5px rgb(119, 119, 118);
+                      } 
+  .admin_category_box form h2{
+                                text-align: center;
+                               }                      
+.admin_category_box input{
+                          padding: 14px;
+                          border-radius: 5px;
+                          border: 1px solid rgb(160, 157, 157);
+                          width: 70%;
+                          margin-top: 5px;
+                          margin-bottom: 10px;
+                          outline: none;
+                         } 
+.admin_category_box form select{
+                           padding: 14px;
+                           border-radius: 5px;
+                           border: 1px solid rgb(161, 157, 157);
+                           width: 76%;
+                           outline: none;
+                           color: rgb(99, 96, 96);
+                           }  
+ .admin_category_box input:hover {
+                            border: 1px solid rgb(245, 126, 126);   
+                            }     
+.admin_category_box select:hover {
+                                border: 1px solid rgb(245, 126, 126);   
+                                }    
+.admin_category_box button{ 
+                            padding: 10px;
+                            width: 100px;
+                            margin-top: 10px;
+                            border-radius: 5px;
+                            border: none;
+                            background-color: rgb(62, 149, 184);
+                            color: white;
+                            cursor: pointer;
+                           }
+.admin_category_box option{
+                         color: black;
+                         }  
+.admin_category_box button:hover{
+                               background-color: rgb(4, 23, 192); 
+                               /* color: #000; */
+                                 }     
+
+/* Styling for the tab buttons */
+ .tabs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .tab_button {
+    padding: 10px 10px;
+    margin-right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer; 
+     font-size: 16px;
+    position: relative; 
+    transition: all 0.3s ease; 
+  } 
+  
+  /* Active tab button style with border animation */
+ .tab_button::after{
+    display      : block;
+    content      : '';
+    border-bottom: solid 2px #923b3b;
+    transform    : scaleX(0);
+    transition   : transform 300ms ease-in-out;
+  }
+  .tab_button:hover:after {
+    transform: scaleX(1);
+} 
+  /* Tab content styling */
+   .tab_content {
+    margin-top: 20px;
+  }
+   
+  /* -------------------category list------------------------------- */
+
+ .categorylist{
+                width:78vw; 
+                /* background-color: #923b3b; */
+               display: flex;
+               justify-content: center;
+               align-items: center;
+               padding: 5px;
+               border-radius: 5px;
+                }
+  .categorylist table{
+                  width: 80%;
+                  }              
+  .categorylist table,th,td {
+                           font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                           border-collapse: collapse;
+                           padding: 10px;
+                           border:1px solid rgb(187, 187, 192) ;
+                           text-align:justify;
+                          }
+ .categorylist th{
+                background-color: rgb(225, 227, 230);
+          }                             
+.categorylist_search {
+                       text-align: center;
+                     } 
+.categorylist_search input{
+                           padding: 10px;
+                           border-top-left-radius:5px; 
+                           border-bottom-left-radius: 5px;
+                           border: 1px solid rgb(158, 156, 156);
+                           border-right:none ;
+                           outline: none;
+                         }  
+ .categorylist_search button{
+                           padding: 9px; 
+                           border: 1px solid rgb(158, 156, 156);
+                           border-top-right-radius: 5px; 
+                           border-bottom-right-radius: 5px;
+                             }        
+ .categorylist_add{
+                    text-align:end;
+                   }  
+ .categorylist_add button{
+                          padding: 10px;
+                          border: 1px solid rgb(43, 43, 238);
+                          border-radius: 5px;
+                          font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                          background-color: rgb(43, 43, 238);
+                          color: white;
+                         }
+      .add_search_box{
+                      display: flex;
+                      justify-content: space-around;
+      }                       
+.product_add_box{
+                 background-color: #fafafa;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                 padding: 5px;
+              
+                  }  
+.product_add_box form{
+                       border: 1px solid rgb(189, 183, 183); 
+                       padding: 15px;
+                       width: 800px;
+                       border-radius: 6px;
+                       box-shadow: 0px 0px 5px rgb(194, 192, 192);
+                       }
+
+.product_add_box form input{
+                              padding: 10px;
+                              border-radius: 5px;
+                             border: 1px solid rgb(195, 195, 197);
+                             width: 50%;
+                             margin-top: 10px;
+                             margin-bottom: 10px;
+                             outline: none;
+                            } 
+ .product_add_box form label{
+                         font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                        font-size: 15px;
+                        font-weight: bold;
+                        }                            
+  .product_add_box select{
+  padding: 10px;
+  border-radius: 5px;
+ border: 1px solid rgb(195, 195, 197);
+ width: 50%;
+ margin-top: 5px;
+ outline: none; 
+ /* width: 80%; */
+  }                           
+.product_add_box img{
+    width: 100px;
+} 
+.product_category div{
+                    width: 100%;
+}
+.product_category{
+                display: flex;
+                }   
+ .product_add_box .save{
+                         padding: 10px; 
+                         width: 100px; 
+                         font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                         font-weight: 600;
+                         font-size: 13px;
+                         background-color: rgb(50, 50, 253);
+                         border: none;
+                         border-radius: 6px;
+                         color:white;
+                         cursor: pointer;
+                       text-align: center;
+                        }   
+            .save:hover{
+                        background-color: #1a5a5c;
+                       }     
+   .business_box{
+                 display: grid;
+                 grid-template-columns: auto auto;
+                 } 
+    .business_add_box{
+      background-color: #fafafa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+       padding: 5px; 
+  
+    }  
+  .business_add_box form input{
+    padding: 10px;
+    border-radius: 5px;
+   border: 1px solid rgb(195, 195, 197);
+   width: 90%;
+   margin-top: 10px;
+   margin-bottom: 10px;
+   outline: none;
+  }   
+  .business_add_box form{
+    border: 1px solid rgb(189, 183, 183); 
+    padding: 15px;
+    width: 800px;
+    border-radius: 6px;
+    box-shadow: 0px 0px 5px rgb(194, 192, 192);
+    }           
+    .business_add_box select{
+      padding: 10px;
+      border-radius: 5px;
+     border: 1px solid rgb(195, 195, 197);
+     width: 50%;
+     margin-top: 5px;
+     outline: none; 
+     width: 80%;
+      } 
+      .business_add_box .save{
+        padding: 10px; 
+        width: 100px; 
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-weight: 600;
+        font-size: 13px;
+        background-color: rgb(50, 50, 253);
+        border: none;
+        border-radius: 6px;
+        color:white;
+        cursor: pointer;
+      text-align: center;
+       }   
+.save:hover{
+       background-color: #1a5a5c;
+      }   
+      .loginmodal {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        width: 400px;
+        text-align: center;
+      margin: auto;
+      
+      }
+      
+      .loginmodal h2 {
+        margin-top: 10px;
+        font-size: 15px;
+      }
+      
+      .loginmodal form {
+        border: 1px solid rgb(194, 192, 192);
+        padding: 10px;
+        border-radius: 5px;
+      }
+      
+      .loginmodal form input {
+        padding: 10px;
+        border-radius: 5px;
+        margin: 5px;
+        border: 1px solid rgb(150, 150, 148);
+        outline: none;
+        /* position: relative; */
+      }
+      
+      .loginmodal form .button {
+        padding: 10px;
+        background-color: var(---blue);
+        color: white;
+        width: 200px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      
+      .loginmodal .password {
+        position: relative;
+        padding-right: 38px;
+        outline: none;
+      }
+      
+      .loginmodal .togglebutton {
+        /* background-color: #14d8f1; */
+        background: none;
+        border: none;
+        color: #000;
+        position: absolute;
+        right: 39%;
+        top: 20%;
+      
+      }  
+      .togglebuttonsign{
+        background: none;
+        border: none;
+        color: #000;
+        position: absolute;
+        right: 39%;
+        top: 30%;
+      }      

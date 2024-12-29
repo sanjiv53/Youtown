@@ -1,0 +1,633 @@
+/* business.module.css */
+@import url(https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css);
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap");
+
+/* Sidebar styles */
+.text-primary {
+  color: #5a8dee !important;
+}
+
+.btn-primary {
+  border-color: #5a8dee !important;
+  background-color: #5a8dee !important;
+  color: #fff;
+}
+
+.img {
+  width: 40px;
+  height: 30px;
+}
+
+.container-fluid span {
+  color: red;
+}
+
+.shadow-md {
+  box-shadow: 0px 5px 10px rgba(90, 116, 148, 0.3);
+}
+
+.navbar {
+  border-radius: 5px;
+}
+
+.sidebar {
+  width: 280px;
+  min-height: 100vh;
+  box-shadow: 0px 4px 8px rgb(0 0 0 / 16%);
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  z-index: 999;
+  transition: 0.5s;
+}
+
+.active {
+  left: 0;
+}
+
+.sdHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+}
+
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  transition: 0.5s;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.sidebar-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.sdBody {
+  padding: 15px;
+  max-height: calc(100vh - 67px);
+  overflow-x: hidden;
+}
+
+.sdBody ul {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 0;
+  padding: 0;
+}
+
+.sdBody ul li {
+  list-style: none;
+  margin-bottom: 8px;
+}
+
+.sdBody ul li .sdLink {
+  display: inline-block;
+  width: 100%;
+  padding: 10px 16px;
+  color: #475f7b;
+  background-color: #e5e8ec;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+
+/* ------PROFILE-------- */
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.profil_box {
+  width: 300px;
+  text-align: center;
+}
+
+.container h1 {
+  font-size: 20px;
+  text-align: center;
+  margin: 20px 0 20px;
+
+}
+
+.container h3 {
+  font-size: 13px;
+  text-align: center;
+  /* margin: 20px 0 20px;  */
+}
+
+.avatarUpload {
+  position: relative;
+  max-width: 200px;
+
+  /* margin: 50px auto; */
+  .avatarEdit {
+    position: absolute;
+    right: 12px;
+    z-index: 1;
+    top: 10px;
+
+    input {
+      display: none;
+
+      +label {
+        display: inline-block;
+        width: 34px;
+        height: 34px;
+        margin-bottom: 0;
+        border-radius: 100%;
+        background: #FFFFFF;
+        border: 1px solid transparent;
+        box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+        cursor: pointer;
+        font-weight: normal;
+        transition: all .2s ease-in-out;
+
+        &:hover {
+          background: #f1f1f1;
+          border-color: #d6d6d6;
+        }
+
+        &:after {
+
+          font-family: 'FontAwesome';
+          color: #757575;
+          position: absolute;
+          top: 10px;
+          left: 0;
+          right: 0;
+          text-align: center;
+          margin: auto;
+        }
+      }
+    }
+  }
+
+}
+
+.icon {
+  color: #e20b0b;
+}
+
+.container label {
+  display: inline-block;
+  width: 34px;
+  height: 34px;
+  margin-bottom: 0;
+  border-radius: 100%;
+  background: #FFFFFF;
+  border: 1px solid transparent;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  font-weight: normal;
+  text-align: center;
+  font-size: 20px;
+  transition: all .2s ease-in-out;
+}
+
+.container label:hover {
+  background: #f1f1f1;
+  border-color: #d6d6d6;
+}
+
+.avatarPreview {
+  width: 192px;
+  height: 192px;
+  position: relative;
+  border-radius: 100%;
+  border: 6px solid #F8F8F8;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+
+  >div {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
+
+.information {
+
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.information .form {
+  padding: 15px;
+  border-radius: 5px;
+  background-color: #e6e8ec;
+}
+
+.information .formGrid {
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 60px;
+  row-gap: 10px;
+}
+
+.information .form input {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid rgb(216, 215, 214);
+  width: 350px;
+  outline: none;
+  padding-left: 25px;
+  position: relative;
+  /* position: static; */
+}
+
+.information .form select {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid rgb(216, 215, 214);
+  width: 350px;
+  outline: none;
+  padding-left: 25px;
+  position: relative;
+  /* position: static; */
+}
+
+.information .form .userProfileIcon {
+  position: absolute;
+  /* top: 10px; */
+  padding: 5px;
+  z-index: 999;
+  border: none;
+  background: none;
+  color: #e20b0b;
+}
+
+.information .form .save {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  margin-top: 10px;
+  background-color: blue;
+  color: white;
+  width: 200px;
+}
+
+.information .form .save:hover {
+  background-color: #5a8dee;
+  box-shadow: 0px 0px 5px black;
+}
+
+/*------------------------------Product--------------------  */
+.Product_business {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.Product_business_card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px rgb(163, 161, 161);
+}
+
+.product_add {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.product_addbutton {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: rgb(58, 58, 224);
+  color: white;
+  margin-bottom: 10px;
+}
+
+.product_add input {
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  border: 1px solid rgb(230, 226, 226);
+  outline: none;
+  padding: 8px;
+}
+
+.product_search {
+  padding: 8px;
+
+  border: none;
+  background-color: rgb(58, 58, 224);
+  color: white;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.login_modal_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+
+}
+
+.login_modal {
+  width: 600px;
+  background: white;
+  padding: 20px;
+  text-align: center;
+  height: 80vh;
+  overflow-y: auto;
+  /* Use 'auto' for scrollbars only when necessary */
+  border-radius: 8px;
+  /* Add a subtle border radius for better aesthetics */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  /* Soft shadow for a modern look */
+  position: relative;
+  /* For any internal positioning adjustments */
+}
+
+/* Add custom scrollbar design */
+.login_modal::-webkit-scrollbar {
+  width: 8px;
+  /* Set scrollbar width */
+}
+
+.login_modal::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  /* Light background for the track */
+  border-radius: 8px;
+  /* Match border radius */
+}
+
+.login_modal::-webkit-scrollbar-thumb {
+  background: #d80b0b;
+  /* Darker scrollbar thumb */
+  border-radius: 8px;
+  /* Rounded scrollbar for better appearance */
+}
+
+.login_modal::-webkit-scrollbar-thumb:hover {
+  background: #e20b0b;
+  /* Darker shade on hover */
+}
+
+
+.login_modal .papu_form {
+  display: grid;
+  grid-template-columns: auto auto;
+  text-align: start;
+}
+
+.login_modal_overlay input {
+  padding: 10px;
+  width: 200px;
+  border: 1px solid rgb(173, 172, 172);
+  border-radius: 5px;
+  outline: none;
+}
+
+.login_modal_overlay select {
+  padding: 10px;
+  width: 200px;
+  border: 1px solid rgb(173, 172, 172);
+  border-radius: 5px;
+  outline: none;
+}
+
+.save {
+  padding: 10px;
+  width: 100px;
+  margin-top: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: rgb(17, 120, 238);
+  color: white;
+  cursor: pointer;
+}
+
+.close_button {
+  padding: 10px;
+  width: 100px;
+  margin-top: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: rgb(243, 0, 0);
+  color: white;
+  cursor: pointer;
+}
+
+.price_card {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+  /* text-align: justify; */
+}
+
+.price_box {
+  border: 1px solid rgb(206, 205, 205);
+  display: flex;
+  border-radius: 8px;
+  flex-direction: column;
+  background-color: white;
+  width: 300px;
+}
+
+.price_box_one {
+  width: 100%;
+  height: 200px;
+  background-color: #6be8ec48;
+  text-align: center;
+  clip-path: circle(54.0% at 50% 7%);
+
+}
+
+.price_box_one h1 {
+  font-size: 30px;
+
+}
+
+.price_box_two {
+  padding: 10px;
+  text-align: center;
+}
+
+.price_box_two h4 {
+  font-size: 18px;
+}
+
+.price_box_two button {
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #d80b0b;
+  color: white;
+  margin-top: 10px;
+}
+
+.jobapply{
+           display: flex;
+           justify-content:center;
+           align-items: center;
+           gap: 20px;
+           padding: 10px;
+}
+.jobapply_box{
+           width: 300px;
+           border: 1px solid rgb(160, 154, 154);
+           text-align: center;
+           padding: 10px;
+           border-radius: 5px;
+}
+.jobapply_box div img{
+                 width: 150px;
+                 height: 150px;
+                 border-radius: 50%;
+                 }
+.jobapply_box_details{
+                     text-align: justify;
+                     }    
+.jobapply_box_details h2{
+                        font-size: 17px;    
+}         
+.jobapply_box_details span{
+                           color: #4e2929;
+}   
+.jobapply_box_details button{
+                            padding: 8px;
+                            border: none;
+                            background-color: rgb(255, 0, 0);
+                            color: white;
+                            border-radius: 5px;
+}      
+
+.dashborad{
+             display: flex;
+             justify-content: space-evenly;
+             align-items: center;
+              gap: 10px;
+              padding: 10px;
+              }
+.dashborad_box{
+                background-color: #ffffff;
+                width: 200px;
+                padding: 10px;
+                border-radius: 4px;
+                text-align: center;
+                border: 1px solid rgb(255, 95, 47);
+                font-weight: bold;
+               font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+               }   
+.dashborad_data table{
+                border: 1px solid rgb(255, 123, 0);
+              }
+.dashborad_data table th {
+                border: 1px solid rgb(255, 174, 0);
+              }
+ .dashborad_data table td {
+                border: 1px solid rgb(255, 136, 0);
+              }
+ .dashborad_data{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 10px;
+ }
+ .paymeant{
+      display: flex;
+       justify-content: center;
+       align-items: center;
+       padding: 20px;
+ }
+ .paymeant_box{
+        width: 400px;
+       text-align: center;
+       background-color: #e6e8ec;
+       border-radius: 5px;
+       box-shadow: 0px 0px 5px rgb(100, 99, 99);
+       padding: 10px;
+ }
+ .paymeant_box input
+ {
+    padding: 8px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid whitesmoke;
+    outline: none;
+ }
+ .paymeant_box h1{
+                  font-size: 20px;
+ }
+ .paymeant_box button{
+              background-color: #d80b0b;
+              border: none;
+              padding: 8px;
+              font-weight: bold;
+              border-radius: 5px;
+              color: white;
+}
+.paymeant_box h3{
+                color: #7c2121;
+}
+@media (max-width:700px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .information .formGrid {
+    grid-template-columns: auto;
+  }
+
+  .information .form input {
+    width: 240px;
+  }
+
+  .information .form select {
+    width: 240px;
+  }
+
+  .Product_business_card {
+    overflow-x: scroll;
+
+  }
+
+  .product_add {
+    flex-direction: column;
+    grid-column: 10px;
+  }
+
+  .login_modal {
+    height: 100vh;
+    overflow: scroll;
+  }
+
+  .login_modal .papu_form {
+    grid-template-columns: auto;
+
+  }
+
+  .price_card {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .dashborad{
+    flex-direction: column;
+  }
+}
