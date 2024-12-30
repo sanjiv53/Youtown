@@ -1519,6 +1519,7 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
   .searchbox {
     width: 315px;
     background: none;
+    height: 20vh;
   }
 
   .searchboxbusiness {
