@@ -169,7 +169,7 @@ const handleJobDetails = (job) => {
         {filteredLogin.map((Business,index) => (
             <div className={styletwo.businessbox}>
                 <div>
-                    <img src={`http://localhost:5000/image/${Business.logo}`}/>
+                    <img src={`${apiUrl}/image/${Business.logo}`}/>
                 </div>
                 <div className={styletwo.businessdetails}>
                    <a onClick={()=>{handleDetails(Business)}} style={{cursor:'pointer'}}> <h3>{Business.name}</h3></a>
@@ -187,7 +187,7 @@ const handleJobDetails = (job) => {
           {Product.map((product) => (
             <div className={styletwo.productbox}>
                 <div>
-                    <img src={`http://localhost:5000/image/${product.imagePath}`}/>
+                    <img src={`${apiUrl}/image/${product.imagePath}`}/>
                 </div>
                 <div className={styletwo.productdetails}>
                 <a onClick={()=>{handleProductDetails(product)}} style={{cursor:'pointer'}}><h3>{product.name}</h3></a>
@@ -207,10 +207,10 @@ const handleJobDetails = (job) => {
           
             <div className={styletwo.Jobbox}style={{ marginBottom: '15px' }}>
                 <div >
-                    <img src={`http://localhost:5000/image/${job.Vendor.logo}`} className={styletwo.img}/>
+                    <img src={`${apiUrl}/image/${job.Vendor.logo}`} className={styletwo.img}/>
                 </div>
                 <div className={styletwo.jobimg}>
-                    <img src={`http://localhost:5000/image/${job.Vendor.logo}`}/>
+                    <img src={`${apiUrl}/image/${job.Vendor.logo}`}/>
                 </div>
                 <div className={styletwo.Jobdetails}>
                 <a onClick={()=>{handleJobDetails(job)}}> <h3>{job.name}</h3></a>
@@ -252,7 +252,7 @@ const handleJobDetails = (job) => {
           {Property.map((property)=>(
              <div className={styletwo.Propertybox}>
                 <div >
-                    <img src={`http://localhost:5000/image/${property.imagePath}`} className={styletwo.img}/>
+                    <img src={`${apiUrl}/image/${property.imagePath}`} className={styletwo.img}/>
                 </div>
                 
                 <div className={styletwo.Propertydetails}>
