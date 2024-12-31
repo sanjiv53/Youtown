@@ -39,21 +39,12 @@ export default function Productdetails() {
     if (itemToEdit?.Vendor) {
   
       fetch(`${apiUrl}/getbusinessproduct?name=${itemToEdit.Vendor._id}`)
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error("Failed to fetch products");
-          }
-          return response.json();
-        })
-        .then((data) => {
-          if (Array.isArray(data)) {
-            setProducts(data);
-          } else {
-            console.error("API response is not an array:", data);
-            setProducts([]);
-          }
-        })
-        .catch((error) => console.error("Error fetching products:", error));
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data); // Check if `Vendor` and `City` exist here
+        setProducts(data);
+      })
+      .catch((error) => console.error("Error fetching products:", error));
     }
   }, [itemToEdit]);
   //-----------------------------------product details---------------------------

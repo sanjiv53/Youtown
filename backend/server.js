@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const crypto = require('crypto-browserify');
+const crypto = require('crypto');
 const axios = require('axios');
 const multer = require('multer');
 const nodemailer = require('nodemailer');
@@ -15,6 +15,7 @@ const PORT = 5000;
 // Middleware setup
 app.use(cors());
 app.use(express.json());
+app.use(bodyParser.json());
 // Check and create uploads directory
 const uploadsDir = path.join(__dirname, '/image');
 if (!fs.existsSync(uploadsDir)) {
@@ -1475,7 +1476,7 @@ app.get('/getbusinessproduct', async (req, res) => {
   }
 
   try {
-    const products = await Item.find({ Vendor:name });
+    const products = await Item.find({ Vendor:name }).populate('Vendor');
     res.json(products);
   } catch (error) {
     console.error('Error fetching products:', error);
@@ -1599,6 +1600,9 @@ app.get('/getdirectoryfrontend', async (req, res) => {
 const SALT_KEY = '4a249dec-af32-4840-93d7-b5cd0c205f7d';
 const MERCHANT_ID = 'M1K62VCY22R8';
 const BASE_URL = 'https://api.phonepe.com/apis/hermes/pg/v1';
+// const SALT_KEY = '099eb0cd-02cf-4e2a-8aca-3e6c6aff0399';
+// const MERCHANT_ID = 'PGTESTPAYUAT';
+// const BASE_URL = 'https://api-preprod.phonepe.com/apis/pg-sandbox';
 
 app.post('/api/phonepe/payment', async (req, res) => {
   const { name, email, mobile, amount } = req.body;
@@ -1696,7 +1700,6 @@ app.post('/api/phonepe/response', async (req, res) => {
     return res.status(500).json({ error: 'Failed to verify payment status' });
   }
 });
-
 
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
