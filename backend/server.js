@@ -1476,7 +1476,8 @@ app.get('/getbusinessproduct', async (req, res) => {
   }
 
   try {
-    const products = await Item.find({ Vendor:name }).populate('Vendor');
+    const products = await Item.find({ Vendor:name }).populate('Vendor')
+    ;
     res.json(products);
   } catch (error) {
     console.error('Error fetching products:', error);

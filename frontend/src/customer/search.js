@@ -21,18 +21,28 @@ export default function Search() {
   const [editingItem, setEditingItem] = useState(null);
   const apiUrl = process.env.REACT_APP_API_URL;
   
-  const filteredLogin = Business.filter((item) =>
-    item.name.toLowerCase().includes(searchQuery.toLowerCase())
-  );
-  const filteredproduct = Product.filter((item) =>
-    item.name.toLowerCase().includes(searchQuery.toLowerCase())
-  );
-  const filteredjob = Job.filter((item) =>
-    item.name.toLowerCase().includes(searchQuery.toLowerCase())
-  );
-  const filteredproperty = Property.filter((item) =>
-    item.name.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  const filteredLogin = Business.filter((item) => {
+    const name = item.name?.toLowerCase() || ""; // Ensure name is a string
+    const city = item.City?.toLowerCase() || ""; // Ensure City is a string
+    return name.includes(searchQuery.toLowerCase()) || city.includes(searchQuery.toLowerCase());
+  });
+  
+  const filteredproduct = Product.filter((item) => {
+    const name = item.name?.toLowerCase() || ""; // Ensure name is a string
+    return name.includes(searchQuery.toLowerCase());
+    
+  });
+  
+  const filteredjob = Job.filter((item) => {
+    const name = item.name?.toLowerCase() || ""; // Ensure name is a string
+    return name.includes(searchQuery.toLowerCase());
+  });
+  
+  const filteredproperty = Property.filter((item) => {
+    const name = item.name?.toLowerCase() || ""; // Ensure name is a string
+    const city = item.City?.toLowerCase() || ""; // Ensure City is a string
+    return name.includes(searchQuery.toLowerCase()) || city.includes(searchQuery.toLowerCase());
+  });
   // ------------------------get  business----------------------
   useEffect(() => {
     axios.get(`${apiUrl}/getbusinessfrontend`)

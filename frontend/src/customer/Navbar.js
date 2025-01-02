@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef }  from 'react';
 import styletwo from './App.module.css';
 // Import Material-UI Icons
 import Visibility from '@mui/icons-material/Visibility';
@@ -13,6 +13,7 @@ import axios from 'axios';
 import { NotificationManager } from 'react-notifications';
 import { NotificationContainer } from 'react-notifications';
 import 'react-notifications/lib/notifications.css';
+import { FaLocationDot, FaPhone } from "react-icons/fa6";
 
 
 function Navbar() {
@@ -27,8 +28,8 @@ function Navbar() {
   const location = useLocation();
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState("");
-
-
+  const inputRef = useRef(null);
+ const [items, setItems] = useState({});
 
   const openLoginModal = () => {
     setIsLoginModalOpen(true);
@@ -131,8 +132,53 @@ function Navbar() {
    
     navigate(`/search-results?query=${encodeURIComponent(searchQuery)}`);
   };
-  
+    //----------------------------------------------------Location--------------------------------------------------
+      useEffect(() => {
+          if (window.google && window.google.maps) {
+            const autocomplete = new window.google.maps.places.Autocomplete(inputRef.current);
+            autocomplete.setFields(["address_components", "geometry", "formatted_address"]);
+      
+            autocomplete.addListener("place_changed", () => {
+              const place = autocomplete.getPlace();
+              let cityName = "";
+              let districtName = "";
+              let postcodeValue = "";
+      
+              for (let component of place.address_components) {
+                if (component.types.includes("locality") || component.types.includes("administrative_area_level_2")) {
+                  cityName = component.long_name;
+                }
+                if (component.types.includes("administrative_area_level_3")) {
+                  districtName = component.long_name;
+                }
+                if (component.types.includes("postal_code")) {
+                  postcodeValue = component.long_name;
+                }
+              }
+      
+              const location = place.geometry?.location;
+      
+              setItems({
+                Address: place.formatted_address || "",
+                City: cityName,
+                District: districtName,
+                Postcode: postcodeValue,
+                Lat: location ? location.lat() : null,
+                Lng: location ? location.lng() : null,
+              });
+            });
+          }
+        }, []);
+
+        const handleSearchLocationSubmit = (e) => {
+          e.preventDefault();
+          const query = items.City.trim();
+          if (query) {
+            navigate(`/search-results?query=${encodeURIComponent(query)}`);
+          }
+        };
   return (
+    <>
     <nav className={styletwo.navbar}>
       <div className={styletwo.container}>
         <div className={styletwo.logo}>
@@ -295,6 +341,21 @@ function Navbar() {
         </div>
       </div>
     </nav>
+    <div className={styletwo.searchboxlocation}>
+    <form onSubmit={(e) => {handleSearchLocationSubmit(e); }}>
+        <div className={styletwo.searchboxlocation}>
+          <FaLocationDot className={styletwo.locationicon} />
+        <input ref={inputRef} value={items.City} onChange={(e) =>   setItems({ ...items, City: e.target.value }) }
+            placeholder="Enter Location"
+            aria-label="Search city"
+          />   
+          <button  type="submit"  className={styletwo.iconlocation}  aria-label="Search">
+          <FaSearch />
+        </button>
+        </div>
+      </form>
+    </div>
+    </>
   );
 };
 
