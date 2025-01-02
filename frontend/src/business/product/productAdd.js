@@ -158,11 +158,7 @@ export default function Product() {
                             {file && <img src={URL.createObjectURL(file)} alt="Preview" style={{ width: '40px', height: '40px' }} />} {/* Preview selected image */}<br />
                             <input type="file" onChange={handleFileChange} />
                         </div>
-                        {/* <div>
-                        <label>Product video</label><br />
-                        <button className={styles.userProfileIcon}><FaUser /></button>
-                        <input type="file"/>
-                      </div> */}
+                        
 
                         <div>
                             <label>Category</label><br />

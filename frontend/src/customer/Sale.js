@@ -93,7 +93,7 @@ export default function Sale() {
                 {/* --------------slider------------------- */}
                 <div className={styletwo.slider_container}>
                     <Slider {...settings}>
-                        {filteredBusinesses.map((product) => (
+                        {Product.map((product) => (
                             <div className={styletwo.product_box_page}>
                                 <div>
                                     <img src={`${apiUrl}/image/${product.imagePath}`} />

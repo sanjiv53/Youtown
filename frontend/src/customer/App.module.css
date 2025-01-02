@@ -400,8 +400,8 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
 .productbox {
   width: 300px;
   cursor: pointer;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
   background-color: var(--white);
@@ -410,8 +410,8 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
 
 .productbox img {
   width: 300px;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 .productdetails {
@@ -426,10 +426,9 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
 }
 
 .productdetails button {
-  /* width: 100px; */
+  background: none;
   padding: 10px;
-  border-radius: 5px;
-  border: 1px solid var(---blue);
+  border: NONE;
   transition: transform 0.2s ease;
 }
 
@@ -438,8 +437,8 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
 }
 
 .productdetails button:hover {
-  background-color: var(---blue);
-  color: var(--white);
+  /* background-color: var(---blue);
+  color: var(--white); */
   transform: scale(1.1);
 }
 
@@ -463,6 +462,7 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   width: 300px;
+  height: 300px;
   clip-path: polygon(0 1%, 100% 0%, 100% 73%, 0% 100%);
 }
 
@@ -1150,29 +1150,29 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
   padding: 20px;
   text-align: center;
   height: 80vh;
-  overflow-y: auto; /* Use 'auto' for scrollbars only when necessary */
-  border-radius: 8px; /* Add a subtle border radius for better aesthetics */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for a modern look */
-  position: relative; /* For any internal positioning adjustments */
+  overflow-y: auto; 
+  border-radius: 8px; 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+  position: relative; 
 }
 
-/* Add custom scrollbar design */
+
 .login_modal::-webkit-scrollbar {
-  width: 8px; /* Set scrollbar width */
+  width: 8px; 
 }
 
 .login_modal::-webkit-scrollbar-track {
-  background: #f1f1f1; /* Light background for the track */
-  border-radius: 8px; /* Match border radius */
+  background: #f1f1f1;
+  border-radius: 8px; 
 }
 
 .login_modal::-webkit-scrollbar-thumb {
-  background: #d80b0b; /* Darker scrollbar thumb */
-  border-radius: 8px; /* Rounded scrollbar for better appearance */
+  background: #d80b0b; 
+  border-radius: 8px; 
 }
 
 .login_modal::-webkit-scrollbar-thumb:hover {
-  background: #e20b0b; /* Darker shade on hover */
+  background: #e20b0b; 
 }
 
 
@@ -1245,34 +1245,37 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
  }  
  .searchboxlocation{
   display: none;
-  text-align: center;
-  padding: 10px;
+  padding-top: 5px;
+  padding-left: 5px;
  }    
 .searchboxlocation input{
-  width: 100%;
-  border-radius: 8px;
-  border: 1px solid rgb(207, 204, 204);
+  width: 50%;
+  background: none;
+  border: none;
+  border-bottom: 1px solid rgb(230, 227, 227);
   padding: 5px;
-padding-left: 20px;
+  padding-left: 20px;
   position: relative;
+  outline: none;
 }     
 .searchboxlocation .iconlocation {
     position: absolute;
-    top: 80px;
-    right:20px;
+    top: 71px;
+    left:140px;
     background:none;
     border: none;
     padding: 4px;
-    border-left: 1px solid rgb(233, 229, 229);
+    border-left: 1px solid rgb(247, 243, 243);
     color: rgb(77, 74, 74);
-    z-index:999;
+    /* z-index:999; */
 } 
 .locationicon{
   position: absolute;
-    top: 88px;
-    left:24px;
+    top: 80px;
+    left:12px;
     z-index:999;
-   color: rgb(206, 199, 199);
+    border: none;
+   color: rgb(231, 9, 9);
 }       
 @media (max-width: 768px) {
   .nav-elements ul li:not(:last-child) {
@@ -1505,6 +1508,7 @@ padding-left: 20px;
 
   .Jobbox .img {
     width: 130px;
+    height: 160px;
   }
 
   .Jobdetails h4 {
@@ -1553,9 +1557,7 @@ padding-left: 20px;
   .searchbox {
     width: 315px;
     background: none;
-    height: 2
-    
-    0vh;
+    height: 20vh;
   }
 
   .searchboxbusiness {

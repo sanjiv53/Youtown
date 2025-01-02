@@ -41,7 +41,7 @@ export default function Home() {
             <div className={styletwo.fooder}>
                 <div className={styletwo.fooder_boxone}>
                     <img src={imgone} alt="Logo"/>
-                    <h2><FaLocationDot style={{ color: 'red' }}/>Aadhiyan Info Technologies, street, 24, Kottai 3rd St, Aranthangi, Tamil Nadu 614616</h2>
+                    <h2><FaLocationDot style={{ color: 'red' }}/>Aadhiyan Info Technologies,<br/> street, 24, Kottai 3rd St,<br/>  Aranthangi, Tamil Nadu 614616</h2>
                     <h2><IoCall style={{ color: 'red' }}/> +91 9363637576</h2>
                     <h2><TbWorldWww style={{ color: 'red' }}/> <a href="https://aadhiyanit.com/" style={{ color: 'black' }}>aadhiyanit@gmail.com</a></h2>
                 </div>
@@ -57,7 +57,7 @@ export default function Home() {
                 </div>
 
                 <div className={styletwo.fooder_img_box}>
-                    <img src={play} alt="Play Image"/>
+                <a href="https://play.google.com/store/apps/details?id=com.aadhiyaninfotech.youtown&pcampaignid=web_share" style={{ color: 'black' }}> <img src={play} alt="Play Image"/></a>
                     <div className={styletwo.icon}>
                         <a href="https://www.facebook.com/people/YouTown/100094239879735/"><FaFacebook /></a>
                         <a href="https://www.instagram.com/aadhiyan_infotech/#"><FaInstagramSquare /></a>

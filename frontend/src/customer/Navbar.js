@@ -177,8 +177,62 @@ function Navbar() {
             navigate(`/search-results?query=${encodeURIComponent(query)}`);
           }
         };
+
+        useEffect(() => {
+          if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+              (position) => {
+                const { latitude, longitude } = position.coords;
+        
+                // Reverse Geocode using Google Maps Geocoding API
+                const geocoder = new window.google.maps.Geocoder();
+                const latlng = { lat: latitude, lng: longitude };
+        
+                geocoder.geocode({ location: latlng }, (results, status) => {
+                  if (status === "OK" && results[0]) {
+                    let cityName = "";
+                    let districtName = "";
+                    let postcodeValue = "";
+        
+                    for (let component of results[0].address_components) {
+                      if (component.types.includes("locality") || component.types.includes("administrative_area_level_2")) {
+                        cityName = component.long_name;
+                      }
+                      if (component.types.includes("administrative_area_level_3")) {
+                        districtName = component.long_name;
+                      }
+                      if (component.types.includes("postal_code")) {
+                        postcodeValue = component.long_name;
+                      }
+                    }
+        
+                    setItems({
+                      Address: results[0].formatted_address || "",
+                      City: cityName,
+                      District: districtName,
+                      Postcode: postcodeValue,
+                      Lat: latitude,
+                      Lng: longitude,
+                    });
+                  } else {
+                    console.error("Geocoder failed due to: " + status);
+                  }
+                });
+              },
+              (error) => {
+                console.error("Error getting location: ", error);
+              }
+            );
+          } else {
+            console.error("Geolocation is not supported by this browser.");
+          }
+        }, []);
+        
+
   return (
     <>
+    
+
     <nav className={styletwo.navbar}>
       <div className={styletwo.container}>
         <div className={styletwo.logo}>
@@ -341,12 +395,49 @@ function Navbar() {
         </div>
       </div>
     </nav>
+    <button type="button"aria-label="Detect Location" className={styletwo.locationicon}
+  onClick={() => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const { latitude, longitude } = position.coords;
+          const geocoder = new window.google.maps.Geocoder();
+          const latlng = { lat: latitude, lng: longitude };
+
+          geocoder.geocode({ location: latlng }, (results, status) => {
+            if (status === "OK" && results[0]) {
+              let cityName = "";
+
+              for (let component of results[0].address_components) {
+                if (component.types.includes("locality")) {
+                  cityName = component.long_name;
+                  break;
+                }
+              }
+        setItems({
+                ...items,
+                City: cityName,
+                Lat: latitude,
+                Lng: longitude,
+              });
+            }
+          });
+        },
+        (error) => {
+          console.error("Error fetching live location: ", error);
+        }
+      );
+    } else {
+      console.error("Geolocation is not supported.");
+    }
+  }}>
+</button>
     <div className={styletwo.searchboxlocation}>
     <form onSubmit={(e) => {handleSearchLocationSubmit(e); }}>
         <div className={styletwo.searchboxlocation}>
           <FaLocationDot className={styletwo.locationicon} />
         <input ref={inputRef} value={items.City} onChange={(e) =>   setItems({ ...items, City: e.target.value }) }
-            placeholder="Enter Location"
+            placeholder=" Location"
             aria-label="Search city"
           />   
           <button  type="submit"  className={styletwo.iconlocation}  aria-label="Search">

@@ -77,14 +77,14 @@ const responsive = {
   }, []);
  // ------------------------get product----------------------
  useEffect(() => {
-  axios.get(`${apiUrl}getproductfrontend`)
-    .then(response => {
-      setProduct(response.data); 
-      console.log(response.data); 
-    })
-    .catch(error => {
-      console.error('Error fetching data:', error);
-    });
+  axios.get(`${apiUrl}/getproductfrontend`)
+      .then(response => {
+          setProduct(response.data);
+          console.log(response.data);
+      })
+      .catch(error => {
+          console.error('Error fetching data:', error);
+      });
 }, []);
 
  // ------------------------get job----------------------
