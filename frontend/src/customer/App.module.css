@@ -399,6 +399,7 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
 
 .productbox {
   width: 300px;
+  height: 60vh;
   cursor: pointer;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
