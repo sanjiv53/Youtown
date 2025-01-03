@@ -59,10 +59,10 @@ export default function Job() {
                 <div className={styletwo.job_page_name}>
                     <div className={styletwo.job_page_img}>
                         <div>
-                            <img src={`${apiUrl}/image/${job.Vendor.logo}`} />
+                        <a onClick={()=>{handleJobDetails(job)}}><img src={`${apiUrl}/image/${job.Vendor.logo}`} /></a>
                         </div>
                         <div className={styletwo.job_page_img_details}>
-                        <a onClick={()=>{handleJobDetails(job)}}>  <h3>HIRING  <button>{job.name}</button></h3></a>
+                        {/* <a onClick={()=>{handleJobDetails(job)}}>  <h3>HIRING  <button>{job.name}</button></h3></a> */}
                         <a onClick={()=>{handleJobDetails(job)}}><h3>{job.name}</h3></a>
                             <p><FaLocationDot style={{ color: 'red' }} /> {job.Address}</p>
                             <p><TbWorldWww style={{ color: 'red' }} /> {job.Website}</p>

@@ -32,8 +32,7 @@ h1{
 .navbar {
   /* width: 100%; */
   height: 60px;
-  background-color: var(--white);
-
+  background-color: whitesmoke;
   position: relative;
 }
 
@@ -747,10 +746,10 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 40Vh;
+  height: 20Vh;
   padding: 10PX;
   /* width: 100%; */
-  background-color: rgb(220, 220, 224);
+  background-color:var(--white);
 }
 
 .searchboxbusiness {
@@ -1036,10 +1035,12 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
   background-color: ghostwhite;
   border: 1px solid rgb(240, 239, 237);
   border-radius: 8px;
+  height: 72vh;
 }
 
 .property_page_box img {
   width: 300px;
+  height: 30vh;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   cursor: pointer;
@@ -1058,12 +1059,15 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
 
 .property_page_details b {
   padding: 8px;
-  font-size: 20px;
+  font-size: 18px;
   border: none;
   background: none;
-  color: var(---blue);
+  color: var(--black);
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
-
+.property_page_details h6{
+    color: var(---blue);
+}
 /*-----------------job page---------------------  */
 .job_page {
   display: flex;
@@ -1079,7 +1083,9 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
   align-items: center;
   gap: 20px;
 }
-
+.job_page_img_details{
+  width: 400px;
+}
 .job_page_img button {
   border: 1px solid var(---blue);
   background-color: var(---blue);
@@ -1105,14 +1111,15 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
 
 .job_page_role button {
   padding: 8px;
-  border: 1px solid var(--skyblue);
+  border: 1px solid var(---blue);
   margin-left: 5px;
   border-radius: 5px;
+  margin-top: 10px;
   color: var(--black);
 }
 
 .job_page_img h2 {
-  color: var(---blue);
+  color: var(--black);
   font-size: 16px;
 }
 
@@ -1337,6 +1344,9 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
 }
 
 @media (max-width: 600px) {
+.h1_home{
+      font-size: 24px;
+  }
   .navbar {
         background: none;
   }
@@ -1720,15 +1730,19 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
 
   .job_page {
     display: grid;
-    grid-template-columns: auto;
+    grid-template-columns: auto ;
   }
 
   .job_page_img {
     flex-direction: column;
+ 
   }
 
+.job_page_role{
+  display: none;
+}
   .job_page_name {
-    width: 90%;
+    width: 100%;
   }
 
   .job_page_img_details {
@@ -1736,13 +1750,15 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
   }
 
   .job_page_img_details p {
-    font-size: 10px;
+    font-size: 12px;
     /* width: 80px; */
   }
-
+.job_page_img_details h3{
+    font-size: 20px;
+}
   .job_page_img img {
-    width: 180px;
-    /* border-radius: 8px; */
+    width: 200px;
+ 
   }
   .product_about_details{
         flex-direction: column;
@@ -1761,6 +1777,7 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
 }
 .product_details_img img{
   width: 300px; 
+  height: 40vh;
 }
 .product_about {
    width: 260px;

@@ -96,7 +96,7 @@ export default function Sale() {
                         {Product.map((product) => (
                             <div className={styletwo.product_box_page}>
                                 <div>
-                                    <img src={`${apiUrl}/image/${product.imagePath}`} />
+                                <a onClick={() => { handleProductDetails(product) }} style={{ cursor: 'pointer' }}><img src={`${apiUrl}/image/${product.imagePath}`} /></a>
                                 </div>
                                 <div className={styletwo.product_details_page}>
                                     <a onClick={() => { handleProductDetails(product) }} style={{ cursor: 'pointer' }}><h3>{product.name}</h3></a>
@@ -115,7 +115,7 @@ export default function Sale() {
                     {filteredBusinesses.map((product) => (
                         <div className={styletwo.product_box_page_sale}>
                             <div>
-                                <img src={`${apiUrl}/image/${product.imagePath}`} />
+                            <a onClick={() => { handleProductDetails(product) }} style={{ cursor: 'pointer' }}><img src={`${apiUrl}/image/${product.imagePath}`} /></a>
                             </div>
                             <div className={styletwo.product_details_page_sale}>
                                 <a onClick={() => { handleProductDetails(product) }} style={{ cursor: 'pointer' }}><h3>{product.name}</h3></a>

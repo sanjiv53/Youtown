@@ -164,12 +164,12 @@ const handleJobDetails = (job) => {
      
    
             {/*----Business box-------- */}
-                 <h1 style={{textAlign:'center',margin:'10px'}}> Featured <span style={{color:'red'}}> Businesses </span></h1>
+                 <h1 style={{textAlign:'center',margin:'10px'}} className={styletwo.h1_home}> Featured <span style={{color:'red'}}> Businesses </span></h1>
         <div className={styletwo.business}>
         {filteredLogin.map((Business,index) => (
             <div className={styletwo.businessbox}>
                 <div>
-                    <img src={`${apiUrl}/image/${Business.logo}`}/>
+                <a onClick={()=>{handleDetails(Business)}} style={{cursor:'pointer'}}> <img src={`${apiUrl}/image/${Business.logo}`}/></a>
                 </div>
                 <div className={styletwo.businessdetails}>
                    <a onClick={()=>{handleDetails(Business)}} style={{cursor:'pointer'}}> <h3>{Business.name}</h3></a>
@@ -182,12 +182,12 @@ const handleJobDetails = (job) => {
         </div>
        {/*----Business box end-------- */}
          {/*----Product box-------- */}
-         <h1 style={{textAlign:'center',margin:'10px'}}>Product <span style={{color:'red'}}> Sale </span></h1>
+         <h1 style={{textAlign:'center',margin:'10px'}}  className={styletwo.h1_home}>Product <span style={{color:'red'}}> Sale </span></h1>
         <div className={styletwo.product}>
           {Product.map((product) => (
             <div className={styletwo.productbox}>
                 <div>
-                    <img src={`${apiUrl}/image/${product.imagePath}`}/>
+                <a onClick={()=>{handleProductDetails(product)}} style={{cursor:'pointer'}}><img src={`${apiUrl}/image/${product.imagePath}`}/></a>
                 </div>
                 <div className={styletwo.productdetails}>
                 <a onClick={()=>{handleProductDetails(product)}} style={{cursor:'pointer'}}><h3>{product.name}</h3></a>
@@ -201,16 +201,16 @@ const handleJobDetails = (job) => {
           {/*----Product box end-------- */}
    
            {/*----job box-------- */}
-           <h1 style={{textAlign:'center',margin:'10px'}}>Job <span style={{color:'red'}}> Vacancies </span></h1>
+           <h1 style={{textAlign:'center',margin:'10px'}}  className={styletwo.h1_home}>Job <span style={{color:'red'}}> Vacancies </span></h1>
         <div className={styletwo.Job}>
           {Job.map((job)=>(
           
             <div className={styletwo.Jobbox}style={{ marginBottom: '15px' }}>
                 <div >
-                    <img src={`${apiUrl}/image/${job.Vendor.logo}`} className={styletwo.img}/>
+                <a onClick={()=>{handleJobDetails(job)}}>  <img src={`${apiUrl}/image/${job.Vendor.logo}`} className={styletwo.img}/></a>
                 </div>
                 <div className={styletwo.jobimg}>
-                    <img src={`${apiUrl}/image/${job.Vendor.logo}`}/>
+                <a onClick={()=>{handleJobDetails(job)}}>  <img src={`${apiUrl}/image/${job.Vendor.logo}`}/></a>
                 </div>
                 <div className={styletwo.Jobdetails}>
                 <a onClick={()=>{handleJobDetails(job)}}> <h3>{job.name}</h3></a>
@@ -247,12 +247,12 @@ const handleJobDetails = (job) => {
         })}
       </Carousel>
           {/*----Local Property box-------- */}
-          <h1 style={{textAlign:'center',margin:'10px'}}>Local <span style={{color:'red'}}>Property  </span></h1>
+          <h1 style={{textAlign:'center',margin:'10px'}}  className={styletwo.h1_home}>Local <span style={{color:'red'}}>Property  </span></h1>
         <div className={styletwo.Property}>
           {Property.map((property)=>(
              <div className={styletwo.Propertybox}>
                 <div >
-                    <img src={`${apiUrl}/image/${property.imagePath}`} className={styletwo.img}/>
+                <a onClick={()=>{handlePropertyDetails(property)}}>   <img src={`${apiUrl}/image/${property.imagePath}`} className={styletwo.img}/></a>
                 </div>
                 
                 <div className={styletwo.Propertydetails}>

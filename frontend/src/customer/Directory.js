@@ -61,7 +61,7 @@ return(
       {filteredBusinesses.map((directory)=>(
             <div className={styletwo.directory_box}>
                 <div>
-                    <img src={`${apiUrl}/image/${directory.logo}`}/>
+                <a onClick={()=>{handleDetails(directory)}} style={{cursor:'pointer'}}> <img src={`${apiUrl}/image/${directory.logo}`}/></a>
                 </div>
                 <div className={styletwo.directory_details}>
                 <a onClick={()=>{handleDetails(directory)}} style={{cursor:'pointer'}}>  <h3>{directory.name}</h3></a>

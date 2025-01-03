@@ -61,7 +61,7 @@ return(
     {filteredBusinesses.map((Business) => (
             <div className={styletwo.businessbox}>
                 <div>
-                    <img src={`http://localhost:5000/image/${Business.logo}`}/>
+                <a onClick={()=>{handleDetails(Business)}} style={{cursor:'pointer'}}> <img src={`http://localhost:5000/image/${Business.logo}`}/></a>
                 </div>
                 <div className={styletwo.businessdetails}>
                 <a onClick={()=>{handleDetails(Business)}} style={{cursor:'pointer'}}> <h3>{Business.name}</h3></a>

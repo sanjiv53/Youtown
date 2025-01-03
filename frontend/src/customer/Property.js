@@ -63,10 +63,10 @@ const handlePropertyDetails = (property) => {
         { filteredBusinesses.map((property)=>(
            <div className={styletwo.property_page_box}>
                 <div>
-                    <img src={`${apiUrl}/image/${property.imagePath}`}/>
+                <a onClick={()=>{handlePropertyDetails(property)}}>  <img src={`${apiUrl}/image/${property.imagePath}`}/></a>
                 </div>
                 <div className={styletwo.property_page_details}>
-                    <b> <CiHospital1 style={{marginRight:'10px'}}/> <FaMosque style={{marginRight:'10px'}}/> <LuChurch style={{marginRight:'10px'}}/> <GiByzantinTemple style={{marginRight:'10px'}}/> <FaShower style={{marginRight:'10px'}}/> <TbBusStop /></b>
+                    <h6> <CiHospital1 style={{marginRight:'10px'}}/> <FaMosque style={{marginRight:'10px'}}/> <LuChurch style={{marginRight:'10px'}}/> <GiByzantinTemple style={{marginRight:'10px'}}/> <FaShower style={{marginRight:'10px'}}/> <TbBusStop /></h6>
                     <a onClick={()=>{handlePropertyDetails(property)}}>  <h3>{property.name}</h3></a>
                     <p><FaPhone style={{color:'red'}}/> {property.Vendor.phone1}</p>
                     <p><FaLocationDot style={{color:'red'}} /> {property.Vendor.City}</p>

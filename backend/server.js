@@ -592,7 +592,7 @@ app.post('/property', upload.single('image'), async (req, res) => {
     const { name, description, order, Category, Vendor, size, price } = req.body;
 
 
-    const imagePath = req.file ? req.file.path.replace('E:\\sanjiv\\REACT JS\\youtown react\\youtown react\\backend\\image\\', '') : null;
+    const imagePath = req.file ? req.file.path.replace('E:\\sanjiv\\REACT JS\\youtown react\\backend\\image\\', '') : null;
 
     // Create a new item
     const newItem = new Property({
@@ -674,7 +674,7 @@ app.post('/product', upload.single('image'), async (req, res) => {
     const { name, description, order, Category, subCategory, Qty, price,Vendor } = req.body;
 
 
-    const imagePath = req.file ? req.file.path.replace('E:\\sanjiv\\REACT JS\\youtown react\\youtown react\\backend\\image\\', '') : null;
+    const imagePath = req.file ? req.file.path.replace('E:\\sanjiv\\REACT JS\\youtown react\\backend\\image\\', '') : null;
 
     // Create a new item
     const newItem = new Item({
@@ -818,7 +818,7 @@ app.post('/jobapply', upload.fields([{ name: 'resume' }, { name: 'Image' }]), as
     console.log(req.files);  // Log the files to debug
     const data = JSON.parse(req.body.data); 
 
-    const baseDir = 'E:\\sanjiv\\REACT JS\\youtown react\\youtown react\\backend\\image\\';
+    const baseDir = 'E:\\sanjiv\\REACT JS\\youtown react\\backend\\image\\';
 
     const resumePath = req.files['resume']?.[0]?.path.replace(baseDir, '') || '';
     const userImagePath = req.files['Image']?.[0]?.path.replace(baseDir, '') || '';
@@ -860,7 +860,7 @@ app.post('/business', upload.fields([{ name: 'logo' }, { name: 'userImage' }]), 
   try {
     const data = JSON.parse(req.body.data); 
 
-    const baseDir = 'E:\\sanjiv\\REACT JS\\youtown react\\youtown react\\backend\\image\\';
+    const baseDir = 'E:\\sanjiv\\REACT JS\\youtown react\\backend\\image\\';
 
     const logoPath = req.files['logo']?.[0]?.path.replace(baseDir, '') || '';
     const userImagePath = req.files['userImage']?.[0]?.path.replace(baseDir, '') || '';
@@ -885,7 +885,7 @@ app.put('/businessEdit/:id', upload.fields([{ name: 'logo' }, { name: 'userImage
   try {
 
     const data = JSON.parse(req.body.data);
-    const baseDir = 'E:\\sanjiv\\REACT JS\\youtown react\\youtown react\\backend\\image\\';
+    const baseDir = 'E:\\sanjiv\\REACT JS\\youtown react\\backend\\image\\';
     // Build update object
     const updateFields = {
       Businessname: data.Businessname,
@@ -952,7 +952,7 @@ app.post('/dirctory', upload.fields([{ name: 'logo' }]), async (req, res) => {
   try {
     const data = JSON.parse(req.body.data); 
 
-    const baseDir = 'E:\\sanjiv\\REACT JS\\youtown react\\youtown react\\backend\\image\\';
+    const baseDir = 'E:\\sanjiv\\REACT JS\\youtown react\\backend\\image\\';
 
     const logoPath = req.files['logo']?.[0]?.path.replace(baseDir, '') || '';
     

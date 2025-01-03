@@ -397,7 +397,7 @@ function Navbar() {
           </div>
         </div>
       </nav>
-      <button type="button" aria-label="Detect Location" className={styletwo.locationicon}
+      <button type="button" style={{display:'none'}} aria-label="Detect Location" className={styletwo.locationicon}
         onClick={() => {
           if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(
