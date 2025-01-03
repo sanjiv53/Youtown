@@ -5,10 +5,12 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { Link, useLocation, useNavigate } from 'react-router-dom';  // No need for BrowserRouter in Navbar
 import Logo from './img/logo-dark.png';
-import { IoMdHome } from "react-icons/io";
+import { AiOutlineHome } from "react-icons/ai";
+import { IoSearch } from "react-icons/io5";
 import { FaSearch, FaUser, FaUserTie, FaUserCircle } from "react-icons/fa";
 import { BiCategoryAlt } from "react-icons/bi";
 import { HiOutlineLogin } from "react-icons/hi";
+import { FaRegUser } from "react-icons/fa6";
 import axios from 'axios';
 import { NotificationManager } from 'react-notifications';
 import { NotificationContainer } from 'react-notifications';
@@ -247,13 +249,13 @@ function Navbar() {
           <div className={styletwo.navbarbottom}>
             <div className={styletwo.navbarbottombar}>
               <ul>
-                <li><Link to="/"><IoMdHome /></Link></li>
-                <li onClick={openSearchModal}><FaSearch /></li>
-                <li><Link to="/Category"><BiCategoryAlt /></Link></li>
+                <li><Link to="/"><AiOutlineHome  className={styletwo.iconbottomnav}/></Link></li>
+                <li onClick={openSearchModal}><IoSearch /></li>
+                <li><Link to="/Category"><BiCategoryAlt className={styletwo.iconbottomnav}/></Link></li>
 
                 {user ? (
                   <li className={styletwo.usericon} onClick={toggleDropdown}>
-                    <FaUser />
+                   <FaRegUser />
                     {isDropdownOpen && (
                       <div className={styletwo.userdropdown}>
                         <ul>
@@ -265,7 +267,7 @@ function Navbar() {
                   </li>
                 ) : (
                   <li className={styletwo.usericon} onClick={toggleDropdown}>
-                    <FaUser />
+                   <FaRegUser />
                     {isDropdownOpen && (
                       <div className={styletwo.userdropdown}>
                         <ul>

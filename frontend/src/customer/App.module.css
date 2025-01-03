@@ -8,6 +8,7 @@
   --black: rgb(22, 20, 20);
   ---greny: rgb(141, 138, 138);
   ---blue: rgb(72, 72, 182);
+  ---greywhite:rgb(240, 240, 243);
 }
 
 a {
@@ -358,7 +359,7 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
   cursor: pointer;
   padding: 5px;
   border-radius: 8px;
-  background-color: var(--white);
+  background-color: var(---greywhite);
 }
 
 .businessbox img {
@@ -404,7 +405,7 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
   border-top-right-radius: 10px;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
-  background-color: var(--white);
+  background-color:var(---greywhite);
 
 }
 
@@ -437,8 +438,6 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
 }
 
 .productdetails button:hover {
-  /* background-color: var(---blue);
-  color: var(--white); */
   transform: scale(1.1);
 }
 
@@ -454,7 +453,7 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
   width: 300px;
   position: relative;
   border-radius: 10px;
-  background-color: var(--white);
+  background-color: var(---greywhite);
   cursor: pointer;
 }
 
@@ -512,7 +511,7 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
   /* border: 1px solid rgb(199, 196, 196); */
   padding: 4px;
   border-radius: 8px;
-  background-color: var(--white);
+  background-color: var(---greywhite);
   transition: transform 0.1s ease;
   cursor: pointer;
 }
@@ -804,7 +803,7 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
   padding: 10px;
   align-items: center;
   gap: 30px;
-  background-color: var(--white);
+  background-color: var(---greywhite);
   width: 600px;
   border-radius: 8px;
 }
@@ -845,7 +844,7 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
   padding: 20px;
   padding: 20px;
   gap: 40px;
-  /* background-color:var(---greny); */
+ 
 }
 
 .product_page_box {
@@ -870,8 +869,8 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
 }
 
 .product_page_details button {
-  background-color: #ff7f50;
-  color: white;
+  background: none;
+  color:var(--black);
   border: none;
   padding: 8px 16px;
   font-size: 16px;
@@ -884,25 +883,24 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
   transition: background-color 0.3s ease;
 }
 
-.product_page_details button:hover {
-  background-color: #ff4500;
-}
+
 
 /* Style for the Slider container */
 .slider_container {
   width: 80%;
   padding: 10px;
   margin: auto;
-  /* background-color: #da0d0d; */
+ 
 }
 
 /* Style for each product box within the Slider */
 .product_box_page {
-  background-color: #f0ebeb;
+  background-color: var(---greywhite);
   border: 1px solid #ddd;
-  padding: 10px;
+  border-radius: 5px;
+  padding: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  /* margin: 10px; */
+  height: 40vh;
   max-width: 200px;
   display: flex;
   flex-direction: column;
@@ -911,16 +909,16 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
   transition: all 0.3s ease;
 }
 
-/* Image styling within the product box */
+
 .product_box_page img {
   width: 100%;
-  height: auto;
+  height: 18vh;
   border-radius: 8px;
   object-fit: cover;
   transition: transform 0.3s ease-in-out;
 }
 
-/* Hover effect on product box */
+
 .product_box_page:hover {
   transform: translateY(-10px);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
@@ -934,7 +932,8 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
 
 
 .product_details_page h3 {
-  font-size: 18px;
+  font-size: 16px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-weight: bold;
   color: #333;
   margin-bottom: 5px;
@@ -943,29 +942,84 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
 
 .product_details_page h4 {
   font-size: 14px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   color: #777;
   margin: 5px 0;
 }
 
 
 .product_details_page button {
-  background-color: #ff7f50;
-  color: white;
+  background: none;
+  color:var(--black);
   border: none;
-  padding: 8px 16px;
   font-size: 16px;
   border-radius: 4px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 10px;
-  transition: background-color 0.3s ease;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+}
+
+.product_box_page_sale{
+  background-color: var(---greywhite);
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  height: 40vh;
+  max-width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  transition: all 0.3s ease;
+}
+.product_box_page_sale img {
+  width: 100%;
+  height: 18vh;
+  border-radius: 4px;
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out;
 }
 
 
-.product_details_page button:hover {
-  background-color: #ff4500;
+.product_box_page_sale:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+.product_details_page_sale {
+  text-align: justify;
+  padding: 10px;
+}
+
+
+.product_details_page_sale h3 {
+  font-size: 16px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+
+.product_details_page_sale h4 {
+  font-size: 14px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: #777;
+  margin: 5px 0;
+}
+
+
+.product_details_page_sale button {
+  background: none;
+  color:var(--black);
+  border: none;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 16px;
 }
 
 /* ----------------------property page------------------------- */
@@ -979,7 +1033,7 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
 }
 
 .property_page_box {
-  background-color: var(--white);
+  background-color: ghostwhite;
   border: 1px solid rgb(240, 239, 237);
   border-radius: 8px;
 }
@@ -1252,11 +1306,12 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
   width: 50%;
   background: none;
   border: none;
-  border-bottom: 1px solid rgb(230, 227, 227);
+  border-bottom: 1px solid rgb(241, 238, 238);
   padding: 5px;
   padding-left: 20px;
   position: relative;
   outline: none;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }     
 .searchboxlocation .iconlocation {
     position: absolute;
@@ -1265,9 +1320,7 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
     background:none;
     border: none;
     padding: 4px;
-    border-left: 1px solid rgb(247, 243, 243);
-    color: rgb(77, 74, 74);
-    /* z-index:999; */
+   color: rgb(77, 74, 74);
 } 
 .locationicon{
   position: absolute;
@@ -1284,6 +1337,9 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
 }
 
 @media (max-width: 600px) {
+  .navbar {
+        background: none;
+  }
    .searchboxlocation{
     display: block;
   }
@@ -1333,51 +1389,40 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
   }
 
   .navbarbottom {
-    background-color: #f0e5e5;
-    /* Background color */
+    background-color:var(---greywhite);
     height: 40px;
-    /* Height of the navbar */
     padding: 8px;
     display: flex;
     justify-content: center;
-    /* Centers the items horizontally */
     align-items: center;
-    /* Centers the items vertically */
     position: fixed;
-    /* Fixed at the bottom of the screen */
     bottom: 0;
-    /* Ensures it's at the bottom */
     left: 0;
-    /* Full width */
     width: 100%;
     z-index: 999;
-    /* Keeps it on top of other content */
   }
 
   .navbarbottombar ul {
     list-style-type: none;
-    /* Remove default list styles */
     margin: 0;
-    /* Remove margin */
     padding: 0;
-    /* Remove padding */
     display: flex;
-    /* Flexbox for horizontal items */
     justify-content: space-between;
     align-items: center;
     gap: 60px;
   }
 
   .navbarbottombar li {
-    color: #444;
-    font-size: 24px;
-    /* Icon size */
+    color: #3a3434;
+    font-size: 23px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   }
 
-  .navbarbottombar li svg {
-    color: rgb(32, 32, 32);
-    /* Color of the icon */
-  }
+ .navbarbottombar li .iconbottomnav {
+  color:  #3a3434;
+  font-size: 23px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+ }
 
   .usericon {
     position: relative;
@@ -1387,7 +1432,6 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
   .userdropdown ul {
     position: absolute;
     bottom: 40px;
-    /* Adjust depending on your navbar height */
     right: 0;
     background-color: #fff;
     color: #333;
@@ -1418,7 +1462,6 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
 
   .navelements {
     display: none;
-    /* Initially hidden */
     flex-direction: column;
     position: absolute;
     position: fixed;
@@ -1432,7 +1475,6 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
 
   .navelements.active {
     display: flex;
-    /* Show navbar when active */
   }
 
   .menuicon {
@@ -1457,11 +1499,12 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
 
   .Categorybox {
     width: 90px;
-    height: 100px;
+    height: 110px;
+    border-radius: 15px;
   }
   .Categorybox img{
-      width: 50px;
-      height: 50px;
+      width: 60px;
+      height: 60px;
   }
   .businessbox {
     flex-wrap: wrap;
@@ -1500,7 +1543,16 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
   .productdetails h3 {
     font-size: 13px;
   }
-
+.product_box_page_sale{
+      width: 130px;
+      height: 45vh;
+}
+.product_details_page_sale h4{
+   font-size: 11px;
+}
+.product_details_page_sale h3 {
+  font-size: 15px;
+}
   .Jobbox {
     flex-wrap: wrap;
     width: 130px;
@@ -1724,7 +1776,7 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
         overflow: scroll;
 }
 .map_details_map iframe{
-             width: 260PX;
+             width: 250PX;
              height: 200px;
 }
 .contition_box{

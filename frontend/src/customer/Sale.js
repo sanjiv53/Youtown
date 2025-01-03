@@ -44,7 +44,7 @@ export default function Sale() {
     const settings = {
         // dots: true,
         // infinite: true,
-        speed: 500,
+        speed: 200,
         slidesToShow: 4,
         slidesToScroll: 2,
         responsive: [
@@ -113,13 +113,13 @@ export default function Sale() {
                 {/*-------------------- product---------------- */}
                 <div className={styletwo.product_page}>
                     {filteredBusinesses.map((product) => (
-                        <div className={styletwo.product_box_page}>
+                        <div className={styletwo.product_box_page_sale}>
                             <div>
                                 <img src={`${apiUrl}/image/${product.imagePath}`} />
                             </div>
-                            <div className={styletwo.product_details_page}>
+                            <div className={styletwo.product_details_page_sale}>
                                 <a onClick={() => { handleProductDetails(product) }} style={{ cursor: 'pointer' }}><h3>{product.name}</h3></a>
-                                <h4><FaPhone style={{ color: 'red' }} /> {product.Vendor?.phone1}</h4>
+                                <h4 className={styletwo.product_details_h4}><FaPhone style={{ color: 'red' }} /> {product.Vendor?.phone1}</h4>
                                 <h4><FaLocationDot style={{ color: 'red' }} />  {product.Vendor?.City}</h4>
                                 <button><FaRupeeSign />{product.price}</button>
                             </div>

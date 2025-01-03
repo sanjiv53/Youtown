@@ -13,11 +13,11 @@ import { IoIosTime } from "react-icons/io";
 import { FaLocationDot,FaPhone } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 import { FaRegBuilding,FaRupeeSign  } from "react-icons/fa";
-import business from './img/category/meeting.png';
-import job from './img/category/job_3850285.png';
-import product from './img/category/discount_10116079.png';
-import property from './img/category/house_8858068.png';
-import directory from './img/category/pamphlet.png';
+import business from './img/category/5.png';
+import job from './img/category/2.png';
+import product from './img/category/4.png';
+import property from './img/category/3.png';
+import directory from './img/category/1.png';
 import Carousel from "react-multi-carousel";
 import 'react-multi-carousel/lib/styles.css'; 
 
